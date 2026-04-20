@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Impostor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: #08081a;
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+    }
+    .font-orbitron { font-family: 'Orbitron', monospace; }
+
+    #starsCanvas {
+      position: fixed; inset: 0;
+      pointer-events: none; z-index: 0;
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(24px); opacity: 0; }
+      to   { transform: translateY(0);   opacity: 1; }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; } to { opacity: 1; }
+    }
+    @keyframes glowPulse {
+      0%,100% { text-shadow: 0 0 12px rgba(192,132,252,.5); }
+      50%      { text-shadow: 0 0 36px rgba(192,132,252,1), 0 0 70px rgba(192,132,252,.4); }
+    }
+    @keyframes cardIn {
+      from { transform: scale(.9) translateY(20px); opacity: 0; }
+      to   { transform: scale(1)  translateY(0);    opacity: 1; }
+    }
+
+    .slide-up   { animation: slideUp .35s ease-out both; }
+    .fade-in    { animation: fadeIn  .25s ease-out both; }
+    .glow-title { animation: glowPulse 3s ease-in-out infinite; }
+    .card-in    { animation: cardIn .35s cubic-bezier(.34,1.56,.64,1) both; }
+
+    .screen { position: relative; z-index: 10; min-height: 100vh; }
+
+    /* Buttons */
+    .btn-primary {
+      background: linear-gradient(135deg,#7c3aed,#4f46e5);
+      transition: all .2s;
+    }
+    .btn-primary:hover:not(:disabled) {
+      background: linear-gradient(135deg,#8b5cf6,#6366f1);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(124,58,237,.45);
+    }
+    .btn-primary:active:not(:disabled) { transform: translateY(0); }
+    .btn-primary:disabled { opacity: .35; cursor: not-allowed; }
+
+    .btn-danger {
+      background: linear-gradient(135deg,#dc2626,#991b1b);
+      transition: all .2s;
+    }
+    .btn-danger:hover {
+      background: linear-gradient(135deg,#ef4444,#dc2626);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(220,38,38,.45);
+    }
+
+    .btn-ghost {
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.12);
+      transition: all .2s;
+    }
+    .btn-ghost:hover {
+      background: rgba(255,255,255,.1);
+      border-color: rgba(167,139,250,.4);
+    }
+
+    /* Text input */
+    .txt-input {
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.15);
+      color: white;
+      outline: none;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .txt-input:focus {
+      border-color: rgba(167,139,250,.6);
+      box-shadow: 0 0 0 3px rgba(124,58,237,.2);
+    }
+    .txt-input::placeholder { color: rgba(255,255,255,.3); }
+
+    /* Player tiles on reveal screen */
+    .player-tile {
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.1);
+      transition: all .2s;
+      cursor: pointer;
+    }
+    .player-tile:hover { background: rgba(255,255,255,.09); transform: translateY(-2px); border-color: rgba(167,139,250,.4); }
+    .player-tile.seen  { background: rgba(99,102,241,.12); border-color: rgba(99,102,241,.35); cursor: default; }
+    .player-tile.seen:hover { transform: none; }
+
+    /* Card overlay */
+    #cardOverlay {
+      position: fixed; inset: 0; z-index: 200;
+      background: rgba(0,0,0,.96);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .hidden { display: none !important; }
+
+    .crewmate-card {
+      background: linear-gradient(145deg,#061430,#020d20);
+      border: 1.5px solid rgba(99,102,241,.6);
+      box-shadow: 0 0 50px rgba(99,102,241,.25), inset 0 0 30px rgba(99,102,241,.04);
+    }
+    .impostor-card {
+      background: linear-gradient(145deg,#1a0410,#100008);
+      border: 1.5px solid rgba(239,68,68,.6);
+      box-shadow: 0 0 50px rgba(239,68,68,.25), inset 0 0 30px rgba(239,68,68,.04);
+    }
+
+    /* scrollbar */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-thumb { background: rgba(167,139,250,.25); border-radius: 2px; }
+
+    /* avatar colors cycle */
+    .av-0  { background: linear-gradient(135deg,#7c3aed,#4f46e5); }
+    .av-1  { background: linear-gradient(135deg,#0891b2,#0e7490); }
+    .av-2  { background: linear-gradient(135deg,#d97706,#b45309); }
+    .av-3  { background: linear-gradient(135deg,#16a34a,#15803d); }
+    .av-4  { background: linear-gradient(135deg,#db2777,#be185d); }
+    .av-5  { background: linear-gradient(135deg,#ea580c,#c2410c); }
+    .av-6  { background: linear-gradient(135deg,#7c3aed,#9333ea); }
+    .av-7  { background: linear-gradient(135deg,#0f766e,#0d9488); }
+    .av-8  { background: linear-gradient(135deg,#4338ca,#6d28d9); }
+    .av-9  { background: linear-gradient(135deg,#b91c1c,#dc2626); }
+  </style>
+</head>
+<body class="min-h-screen text-white">
+
+<canvas id="starsCanvas"></canvas>
+
+<div id="app"></div>
+
+<!-- Card Overlay -->
+<div id="cardOverlay" class="hidden fade-in">
+  <div id="cardBox" class="relative w-80 max-w-xs mx-4 rounded-3xl p-8 text-center card-in">
+
+    <div id="cPlayerName" class="text-sm font-semibold text-gray-400 mb-5 tracking-wide uppercase"></div>
+
+    <!-- Role badge -->
+    <div id="cRoleBadge" class="inline-flex items-center gap-2 rounded-full px-4 py-1.5 mb-6 text-xs font-bold uppercase tracking-widest"></div>
+
+    <!-- Category -->
+    <div class="text-xs uppercase tracking-widest text-gray-500 mb-1">Category</div>
+    <div id="cCategory" class="text-xl font-bold mb-6"></div>
+
+    <!-- Word section -->
+    <div id="cWordSection"></div>
+
+    <!-- Dismiss -->
+    <button id="dismissBtn" class="mt-7 w-full py-3 rounded-2xl text-sm font-bold tracking-wide btn-primary">
+      Got it — hide card
+    </button>
+
+  </div>
+</div>
+
+<script>
+// ─── Word bank ────────────────────────────────────────────────────────────────
+const WORD_BANK = {
+  "Animals":     ["Elephant","Penguin","Dolphin","Tiger","Giraffe","Kangaroo","Octopus","Cheetah","Flamingo","Porcupine"],
+  "Food":        ["Pizza","Sushi","Tacos","Hamburger","Ice Cream","Ramen","Croissant","Cheesecake","Nachos","Dumplings"],
+  "Sports":      ["Soccer","Basketball","Tennis","Swimming","Baseball","Volleyball","Boxing","Surfing","Archery","Fencing"],
+  "Places":      ["Beach","Library","Casino","Airport","Hospital","Museum","Stadium","Lighthouse","Submarine","Observatory"],
+  "Jobs":        ["Astronaut","Chef","Surgeon","Firefighter","Detective","Architect","Pilot","Magician","Archaeologist","Sommelier"],
+  "Objects":     ["Telescope","Umbrella","Compass","Hourglass","Kaleidoscope","Periscope","Thermostat","Boomerang","Sextant","Bonsai"],
+  "Movies":      ["Inception","Avatar","Titanic","The Matrix","Gladiator","Interstellar","Jurassic Park","The Godfather","Jaws","Alien"],
+  "Superheroes": ["Batman","Spider-Man","Wonder Woman","Iron Man","Black Panther","Thor","Captain America","The Flash","Aquaman","Wolverine"],
+  "Vehicles":    ["Helicopter","Submarine","Skateboard","Hot Air Balloon","Motorcycle","Gondola","Hovercraft","Segway","Zeppelin","Rickshaw"],
+  "Music":       ["Guitar","Drums","Saxophone","Theremin","Bagpipes","Cello","Harmonica","Xylophone","Banjo","Ukulele"],
+};
+
+// ─── Game state ───────────────────────────────────────────────────────────────
+let G = {
+  screen: "setup",   // setup | reveal | discussion | results
+  players: [],
+  impostorIndex: -1,
+  category: "",
+  word: "",
+  seenSet: new Set(),
+  viewingIdx: null,
+};
+
+// ─── Stars ────────────────────────────────────────────────────────────────────
+(function initStars() {
+  const cv = document.getElementById("starsCanvas");
+  const cx = cv.getContext("2d");
+  function resize() { cv.width = innerWidth; cv.height = innerHeight; }
+  resize();
+  window.addEventListener("resize", resize);
+
+  const stars = Array.from({length: 180}, () => ({
+    x: Math.random(),
+    y: Math.random(),
+    r: Math.random() * 1.4 + .25,
+    o: Math.random(),
+    d: (Math.random() * .008 + .002) * (Math.random() < .5 ? 1 : -1),
+  }));
+
+  (function tick() {
+    cx.clearRect(0, 0, cv.width, cv.height);
+    stars.forEach(s => {
+      s.o += s.d;
+      if (s.o > 1 || s.o < .08) s.d *= -1;
+      cx.beginPath();
+      cx.arc(s.x * cv.width, s.y * cv.height, s.r, 0, Math.PI * 2);
+      cx.fillStyle = `rgba(255,255,255,${s.o.toFixed(2)})`;
+      cx.fill();
+    });
+    requestAnimationFrame(tick);
+  })();
+})();
+
+// ─── Render dispatcher ────────────────────────────────────────────────────────
+function render() {
+  const screens = {
+    setup:      renderSetup,
+    reveal:     renderReveal,
+    discussion: renderDiscussion,
+    results:    renderResults,
+  };
+  document.getElementById("app").innerHTML = screens[G.screen]();
+}
+
+// ─── Helpers ──────────────────────────────────────────────────────────────────
+function esc(s) {
+  return String(s)
+    .replace(/&/g,"&amp;").replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+}
+function av(i) { return `av-${i % 10}`; }
+function initials(name) { return name.charAt(0).toUpperCase(); }
+
+// ─── SETUP ────────────────────────────────────────────────────────────────────
+function renderSetup() {
+  const list = G.players.map((p, i) => `
+    <div class="flex items-center gap-3 bg-white/5 border border-white/10 rounded-xl px-4 py-3 slide-up">
+      <div class="w-9 h-9 rounded-full ${av(i)} flex-shrink-0 flex items-center justify-center text-sm font-bold">
+        ${initials(p)}
+      </div>
+      <span class="flex-1 font-medium truncate">${esc(p)}</span>
+      <button onclick="removePlayer(${i})" class="text-gray-600 hover:text-red-400 transition-colors text-2xl leading-none w-6 h-6 flex items-center justify-center">×</button>
+    </div>
+  `).join("");
+
+  const canStart = G.players.length >= 3;
+  const statusMsg = canStart
+    ? `<span class="text-green-400 text-xs">✓ Ready to play</span>`
+    : `<span class="text-gray-500 text-xs">Need ${3 - G.players.length} more player${3 - G.players.length !== 1 ? "s" : ""}</span>`;
+
+  return `
+    <div class="screen flex flex-col items-center px-4 py-12 max-w-md mx-auto">
+
+      <div class="mb-10 text-center">
+        <h1 class="font-orbitron text-5xl font-black tracking-wider mb-2 glow-title" style="color:#c084fc">IMPOSTOR</h1>
+        <p class="text-gray-500 text-xs tracking-widest uppercase">Social Deduction Game</p>
+      </div>
+
+      <!-- Add player -->
+      <div class="w-full mb-5">
+        <label class="block text-xs uppercase tracking-widest text-gray-400 mb-2">Players</label>
+        <div class="flex gap-2">
+          <input
+            id="nameInput"
+            type="text"
+            maxlength="20"
+            placeholder="Enter a name…"
+            class="flex-1 txt-input rounded-xl px-4 py-3 text-sm"
+            onkeydown="if(event.key==='Enter') addPlayer()"
+          />
+          <button onclick="addPlayer()" class="btn-primary px-5 py-3 rounded-xl text-sm font-bold">Add</button>
+        </div>
+        <div id="nameError" class="text-red-400 text-xs mt-1 hidden">Name already added.</div>
+      </div>
+
+      <!-- Player list -->
+      ${G.players.length > 0 ? `
+        <div class="w-full mb-6 space-y-2">
+          <div class="flex justify-between items-center mb-1">
+            <span class="text-xs uppercase tracking-widest text-gray-400">${G.players.length} player${G.players.length !== 1 ? "s" : ""}</span>
+            ${statusMsg}
+          </div>
+          ${list}
+        </div>
+      ` : `
+        <div class="w-full mb-6 rounded-2xl border border-dashed border-white/10 py-10 text-center text-gray-600 text-sm">
+          Add at least 3 players to begin
+        </div>
+      `}
+
+      <button
+        onclick="startGame()"
+        ${canStart ? "" : "disabled"}
+        class="w-full py-4 rounded-2xl text-sm font-bold tracking-widest btn-primary"
+      >START GAME</button>
+
+      <p class="mt-6 text-xs text-gray-600 text-center leading-relaxed">
+        One player is secretly the impostor.<br/>
+        They see the <em>category</em> — but not the word.
+      </p>
+    </div>
+  `;
+}
+
+// ─── REVEAL ───────────────────────────────────────────────────────────────────
+function renderReveal() {
+  const allSeen = G.seenSet.size === G.players.length;
+  const pct = Math.round((G.seenSet.size / G.players.length) * 100);
+
+  const tiles = G.players.map((p, i) => {
+    const seen = G.seenSet.has(i);
+    return `
+      <button
+        onclick="${seen ? "" : `showCard(${i})`}"
+        class="player-tile ${seen ? "seen" : ""} rounded-2xl p-4 flex flex-col items-center gap-2"
+      >
+        <div class="w-12 h-12 rounded-full flex items-center justify-center text-lg font-bold
+          ${seen ? "bg-indigo-600" : av(i)}">
+          ${seen ? "✓" : initials(p)}
+        </div>
+        <span class="text-xs font-semibold truncate w-full text-center ${seen ? "text-indigo-300" : "text-gray-300"}">${esc(p)}</span>
+        <span class="text-xs ${seen ? "text-indigo-400" : "text-gray-500"}">${seen ? "Ready" : "Tap me"}</span>
+      </button>
+    `;
+  }).join("");
+
+  return `
+    <div class="screen flex flex-col items-center px-4 py-10 max-w-md mx-auto">
+
+      <div class="mb-8 text-center">
+        <h2 class="font-orbitron text-2xl font-bold mb-1" style="color:#c084fc">SECRET ROLES</h2>
+        <p class="text-gray-400 text-sm">Each player taps their name <em>privately</em></p>
+      </div>
+
+      <!-- Progress -->
+      <div class="w-full mb-6">
+        <div class="flex justify-between text-xs text-gray-500 mb-2">
+          <span>Progress</span>
+          <span>${G.seenSet.size} / ${G.players.length} ready</span>
+        </div>
+        <div class="h-1.5 bg-white/10 rounded-full overflow-hidden">
+          <div class="h-full rounded-full bg-gradient-to-r from-violet-600 to-indigo-500 transition-all duration-500" style="width:${pct}%"></div>
+        </div>
+      </div>
+
+      <!-- Tiles -->
+      <div class="w-full grid grid-cols-3 gap-3 mb-8">${tiles}</div>
+
+      ${allSeen ? `
+        <button onclick="goDiscussion()" class="w-full py-4 rounded-2xl text-sm font-bold tracking-widest btn-primary slide-up">
+          START DISCUSSION →
+        </button>
+      ` : `
+        <p class="text-sm text-gray-600 text-center">Waiting for everyone to view their role…</p>
+      `}
+    </div>
+  `;
+}
+
+// ─── DISCUSSION ───────────────────────────────────────────────────────────────
+function renderDiscussion() {
+  const rows = G.players.map((p, i) => `
+    <div class="flex items-center gap-3 bg-white/5 border border-white/10 rounded-xl px-4 py-3">
+      <div class="w-8 h-8 rounded-full ${av(i)} flex-shrink-0 flex items-center justify-center text-sm font-bold">
+        ${initials(p)}
+      </div>
+      <span class="flex-1 font-medium">${esc(p)}</span>
+      <span class="text-gray-600 text-xs">#${i + 1}</span>
+    </div>
+  `).join("");
+
+  return `
+    <div class="screen flex flex-col items-center px-4 py-10 max-w-md mx-auto min-h-screen">
+
+      <div class="text-center mb-8">
+        <div class="text-6xl mb-4">🔍</div>
+        <h2 class="font-orbitron text-3xl font-black mb-3" style="color:#c084fc">DISCUSS!</h2>
+        <p class="text-gray-300 text-sm leading-relaxed">
+          Talk about the secret word — without saying it.<br/>
+          The impostor doesn't know it. Find them!
+        </p>
+      </div>
+
+      <!-- Category hint -->
+      <div class="w-full bg-white/5 border border-white/10 rounded-2xl p-5 mb-6 text-center">
+        <p class="text-xs uppercase tracking-widest text-gray-500 mb-2">Everyone knows the category:</p>
+        <p class="text-2xl font-bold" style="color:#c084fc">${esc(G.category)}</p>
+      </div>
+
+      <!-- Player list -->
+      <div class="w-full space-y-2 mb-8">
+        <p class="text-xs uppercase tracking-widest text-gray-500 mb-3">Players this round</p>
+        ${rows}
+      </div>
+
+      <button onclick="showResults()" class="w-full py-4 rounded-2xl text-sm font-bold tracking-widest btn-danger">
+        REVEAL THE IMPOSTOR
+      </button>
+
+    </div>
+  `;
+}
+
+// ─── RESULTS ─────────────────────────────────────────────────────────────────
+function renderResults() {
+  const name = G.players[G.impostorIndex];
+  const roleRows = G.players.map((p, i) => {
+    const imp = i === G.impostorIndex;
+    return `
+      <div class="flex items-center gap-3 rounded-xl px-4 py-3 border
+        ${imp ? "bg-red-950/35 border-red-500/30" : "bg-indigo-950/25 border-indigo-500/15"}">
+        <div class="w-8 h-8 rounded-full flex-shrink-0 flex items-center justify-center text-sm font-bold
+          ${imp ? "bg-red-600" : av(i)}">
+          ${imp ? "👾" : initials(p)}
+        </div>
+        <span class="flex-1 font-medium">${esc(p)}</span>
+        <span class="text-xs font-bold ${imp ? "text-red-400" : "text-indigo-400"}">${imp ? "IMPOSTOR" : "Crewmate"}</span>
+      </div>
+    `;
+  }).join("");
+
+  return `
+    <div class="screen flex flex-col items-center px-4 py-10 max-w-md mx-auto min-h-screen">
+
+      <div class="text-center mb-8 slide-up">
+        <div class="text-7xl mb-4">👾</div>
+        <p class="text-xs uppercase tracking-widest text-red-400 mb-2">The Impostor Was…</p>
+        <h2 class="font-orbitron text-4xl font-black mb-6" style="color:#f87171">${esc(name)}</h2>
+
+        <div class="bg-red-950/35 border border-red-500/25 rounded-2xl p-5 text-center mb-2">
+          <p class="text-xs uppercase tracking-widest text-gray-500 mb-1">Category</p>
+          <p class="text-xl font-bold mb-3" style="color:#fca5a5">${esc(G.category)}</p>
+          <p class="text-xs uppercase tracking-widest text-gray-500 mb-1">The Secret Word</p>
+          <p class="text-4xl font-black text-white">${esc(G.word)}</p>
+        </div>
+        <p class="text-xs text-gray-600 mt-2">
+          All crewmates knew the word. The impostor only saw the category.
+        </p>
+      </div>
+
+      <!-- Roles recap -->
+      <div class="w-full space-y-2 mb-8">
+        <p class="text-xs uppercase tracking-widest text-gray-500 mb-3">Full recap</p>
+        ${roleRows}
+      </div>
+
+      <div class="w-full space-y-3">
+        <button onclick="playAgain()" class="w-full py-4 rounded-2xl text-sm font-bold tracking-widest btn-primary">
+          PLAY AGAIN (same players)
+        </button>
+        <button onclick="goSetup()" class="w-full py-3 rounded-2xl text-sm font-semibold btn-ghost">
+          Change Players
+        </button>
+      </div>
+
+    </div>
+  `;
+}
+
+// ─── Actions ──────────────────────────────────────────────────────────────────
+function addPlayer() {
+  const input = document.getElementById("nameInput");
+  const errEl = document.getElementById("nameError");
+  const name  = input.value.trim();
+  if (!name) return;
+
+  if (G.players.map(p => p.toLowerCase()).includes(name.toLowerCase())) {
+    errEl.classList.remove("hidden");
+    input.classList.add("border-red-500/60");
+    setTimeout(() => {
+      errEl.classList.add("hidden");
+      input.classList.remove("border-red-500/60");
+    }, 1800);
+    return;
+  }
+
+  G.players.push(name);
+  render();
+  setTimeout(() => {
+    const ni = document.getElementById("nameInput");
+    if (ni) ni.focus();
+  }, 30);
+}
+
+function removePlayer(i) {
+  G.players.splice(i, 1);
+  render();
+}
+
+function startGame() {
+  if (G.players.length < 3) return;
+  const cats = Object.keys(WORD_BANK);
+  G.category = cats[Math.floor(Math.random() * cats.length)];
+  const words = WORD_BANK[G.category];
+  G.word = words[Math.floor(Math.random() * words.length)];
+  G.impostorIndex = Math.floor(Math.random() * G.players.length);
+  G.seenSet = new Set();
+  G.viewingIdx = null;
+  G.screen = "reveal";
+  render();
+}
+
+function showCard(idx) {
+  const isImp = idx === G.impostorIndex;
+  const name  = G.players[idx];
+
+  // Style card
+  const box = document.getElementById("cardBox");
+  box.className = `relative w-80 max-w-xs mx-4 rounded-3xl p-8 text-center card-in ${isImp ? "impostor-card" : "crewmate-card"}`;
+
+  // Player name
+  document.getElementById("cPlayerName").textContent = name;
+
+  // Role badge
+  const badge = document.getElementById("cRoleBadge");
+  if (isImp) {
+    badge.className = "inline-flex items-center gap-2 rounded-full px-4 py-1.5 mb-6 text-xs font-bold uppercase tracking-widest bg-red-900/50 border border-red-500/35 text-red-300";
+    badge.innerHTML = `<span>👾</span> Impostor`;
+  } else {
+    badge.className = "inline-flex items-center gap-2 rounded-full px-4 py-1.5 mb-6 text-xs font-bold uppercase tracking-widest bg-indigo-900/50 border border-indigo-500/35 text-indigo-300";
+    badge.innerHTML = `<span>✓</span> Crewmate`;
+  }
+
+  // Category
+  const catEl = document.getElementById("cCategory");
+  catEl.style.color = isImp ? "#fca5a5" : "#a5b4fc";
+  catEl.textContent = G.category;
+
+  // Word section
+  const ws = document.getElementById("cWordSection");
+  if (isImp) {
+    ws.innerHTML = `
+      <div class="bg-red-950/50 border border-red-500/20 rounded-2xl p-4">
+        <p class="text-red-300 font-semibold text-sm">You don't know the word.</p>
+        <p class="text-gray-500 text-xs mt-1">Blend in. Don't get caught.</p>
+      </div>
+    `;
+  } else {
+    ws.innerHTML = `
+      <div class="text-xs uppercase tracking-widest text-gray-500 mb-2">Your Word</div>
+      <div class="text-4xl font-black text-white">${esc(G.word)}</div>
+    `;
+  }
+
+  // Dismiss button
+  document.getElementById("dismissBtn").onclick = () => dismissCard(idx);
+
+  // Show overlay
+  document.getElementById("cardOverlay").classList.remove("hidden");
+  G.viewingIdx = idx;
+}
+
+function dismissCard(idx) {
+  document.getElementById("cardOverlay").classList.add("hidden");
+  if (idx !== undefined) {
+    G.seenSet.add(idx);
+  }
+  G.viewingIdx = null;
+  render();
+}
+
+function goDiscussion() {
+  G.screen = "discussion";
+  render();
+}
+
+function showResults() {
+  G.screen = "results";
+  render();
+}
+
+function playAgain() {
+  startGame();
+}
+
+function goSetup() {
+  G.screen = "setup";
+  G.impostorIndex = -1;
+  G.seenSet = new Set();
+  render();
+}
+
+// ─── Boot ─────────────────────────────────────────────────────────────────────
+render();
+</script>
+</body>
+</html>
