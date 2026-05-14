@@ -7,7 +7,8 @@ Static HTML hosted on `https://yamartinez.github.io/catchlink/`.
 - `index.html` — marketing landing page (App Store *Marketing URL*).
 - `support.html` — support + FAQ (App Store *Support URL*, required).
 - `privacy.html` — privacy policy (App Store *Privacy Policy URL*, required).
-- `_shared.css` — shared styles (light/dark, system fonts).
+- `styles.css` — shared styles (light/dark, system fonts). Named without a
+  leading underscore so GitHub Pages' Jekyll build doesn't filter it out.
 
 ## Published URLs
 
