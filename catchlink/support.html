@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CatchLink — Support</title>
+  <meta name="description" content="Support and FAQ for CatchLink, the Sound Transit Link Lock Screen widget for iOS." />
+  <link rel="stylesheet" href="./_shared.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <a class="brand" href="./index.html">CatchLink</a>
+      <nav>
+        <a href="./index.html">Home</a>
+        <a href="./privacy.html">Privacy</a>
+      </nav>
+    </header>
+
+    <h1>Support</h1>
+    <p class="muted">Help, FAQ, and how to get in touch.</p>
+
+    <h2>Contact</h2>
+    <div class="card">
+      <p>Questions, bugs, or feature requests? Email <a href="mailto:catchlink@yamartinez.com">catchlink@yamartinez.com</a>.</p>
+      <p class="muted">I read every message. Please include your iOS version and a brief description of what you saw.</p>
+    </div>
+
+    <h2>Frequently asked questions</h2>
+
+    <h2>What does CatchLink do?</h2>
+    <p>It reads the public Sound Transit Link arrival feed (via OneBusAway) and combines it with your commute profile — origin platform, destination, walking time — to tell you the next train you can actually catch.</p>
+
+    <h2>How do I set up a commute profile?</h2>
+    <ol>
+      <li>Open CatchLink and switch to the <strong>Profiles</strong> tab.</li>
+      <li>Tap <strong>+</strong> to create a new profile.</li>
+      <li>Pick your origin platform and destination platform from the station list.</li>
+      <li>Enter how many minutes it takes you to walk from where you are (home, office, etc.) to that platform.</li>
+      <li>Pick the days and time window the profile is active.</li>
+    </ol>
+
+    <h2>How do I add the Lock Screen widget?</h2>
+    <ol>
+      <li>Long-press your Lock Screen and tap <strong>Customize</strong>.</li>
+      <li>Tap the widget area below the clock.</li>
+      <li>Find <strong>CatchLink</strong> in the list and add the widget you want.</li>
+    </ol>
+
+    <h2>Which stations are supported?</h2>
+    <p>Every Link light rail platform that Sound Transit publishes via OneBusAway. That includes the 1 Line, 2 Line, and T Line. When Sound Transit opens new stations, an app update adds them.</p>
+
+    <h2>Do I need a OneBusAway API key?</h2>
+    <p>No. CatchLink ships with everything it needs to fetch public arrival data. You don't sign in, and you don't bring your own key.</p>
+
+    <h2>Live Activity isn't showing up</h2>
+    <p>Live Activities require iOS 16.1+ and must be enabled. Open <strong>Settings → CatchLink</strong> and confirm <strong>Live Activities</strong> is on. On a fresh install the first activity appears after you save a profile and the next departure is within the active window.</p>
+
+    <h2>The recommendation says "no catchable train"</h2>
+    <p>This means every upcoming arrival in the feed leaves before you could physically walk to the platform, given the walking time on your profile. Adjust the walking minutes if it's wrong, or wait — CatchLink rolls forward to the next viable departure automatically.</p>
+
+    <h2>Background refresh seems slow</h2>
+    <p>iOS decides when background refresh runs. Opening the app or tapping the widget forces a fresh fetch. Live Activities update on their own while they're on screen.</p>
+
+    <h2>iOS version</h2>
+    <p>CatchLink requires iOS 17 or later. Live Activities require iOS 16.1+ (already covered by the iOS 17 minimum).</p>
+
+    <footer>
+      <p>© CatchLink. Sound Transit and OneBusAway are trademarks of their respective owners. CatchLink is an independent project.</p>
+    </footer>
+  </div>
+</body>
+</html>
