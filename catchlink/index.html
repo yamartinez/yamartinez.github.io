@@ -3,41 +3,101 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>CatchLink — Sound Transit Link, on your Lock Screen</title>
-  <meta name="description" content="CatchLink is an iOS Lock Screen widget and Live Activity that tells Seattle-area commuters exactly when to leave for the next Link light rail train." />
+  <title>CatchLink — Leave on time for every Link.</title>
+  <meta name="description" content="An iOS Lock Screen widget and Live Activity that tells Seattle-area Sound Transit commuters exactly when to leave for the next Link light rail train." />
+  <meta name="theme-color" content="#0a84ff" />
   <link rel="stylesheet" href="./_shared.css" />
 </head>
 <body>
-  <div class="container">
-    <header>
-      <a class="brand" href="./index.html">CatchLink</a>
-      <nav>
+  <header class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="./index.html">
+        <span class="brand-mark">C</span>
+        <span>CatchLink</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#features">Features</a>
         <a href="./support.html">Support</a>
         <a href="./privacy.html">Privacy</a>
       </nav>
-    </header>
+    </div>
+  </header>
 
-    <h1>Leave on time for every Link.</h1>
-    <p class="muted">CatchLink is an iOS Lock Screen widget and Live Activity for Sound Transit Link light rail commuters in the Seattle area.</p>
+  <section class="hero">
+    <div class="hero-inner">
+      <span class="eyebrow">Sound Transit · Link Light Rail</span>
+      <h1>Leave on time for <span class="gradient-text">every Link.</span></h1>
+      <p class="lede">CatchLink is an iOS Lock Screen widget and Live Activity that tells Seattle-area commuters exactly when to step out the door — no app to open, no schedules to check.</p>
+      <a class="hero-cta" href="#features">See how it works
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+      <a class="hero-cta secondary" href="./support.html">Support</a>
+    </div>
+  </section>
 
-    <h2>What it does</h2>
-    <p>Tell CatchLink where you're going and how long it takes you to walk to the platform. CatchLink watches the real‑time arrival feed from OneBusAway and shows a single, glanceable recommendation: <em>leave now</em>, or <em>your next safe train departs at X:XX</em>.</p>
+  <section class="section" id="features">
+    <div class="section-inner">
+      <h2 class="section-title">Built for the daily commute.</h2>
+      <p class="section-sub">A glanceable recommendation on your Lock Screen. A Live Activity that rolls forward as departures pass. That's it.</p>
 
-    <h2>Why you'll like it</h2>
-    <ul>
-      <li>Lock Screen widget — no app to open.</li>
-      <li>Live Activity that rolls forward automatically as departures pass.</li>
-      <li>Profiles for your morning, evening, and weekend commutes.</li>
-      <li>Works with every Link light rail platform Sound Transit operates.</li>
-      <li>No accounts, no ads, no tracking.</li>
-    </ul>
+      <div class="features">
+        <div class="feature">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="3"/><path d="M9 18h6"/></svg>
+          </div>
+          <h3>Lock Screen widget</h3>
+          <p>A single, calm line on your Lock Screen tells you when to leave for your next catchable train.</p>
+        </div>
 
-    <h2>Get it</h2>
-    <p>Coming soon to the App Store.</p>
+        <div class="feature">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          </div>
+          <h3>Live Activity</h3>
+          <p>Pin your commute to the Dynamic Island. CatchLink rolls forward automatically as trains depart.</p>
+        </div>
 
-    <footer>
-      <p>© CatchLink. Sound Transit and OneBusAway names are property of their respective owners. CatchLink is an independent project and is not affiliated with Sound Transit.</p>
-    </footer>
-  </div>
+        <div class="feature">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+          </div>
+          <h3>Smart profiles</h3>
+          <p>Different commute for mornings, evenings, and weekends? Profiles activate automatically by day and time.</p>
+        </div>
+
+        <div class="feature">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8 6 6 9 6 13a6 6 0 0 0 12 0c0-4-2-7-6-11z"/></svg>
+          </div>
+          <h3>Every Link platform</h3>
+          <p>Works with the 1 Line, 2 Line, and T Line — every Sound Transit Link platform in the OneBusAway feed.</p>
+        </div>
+
+        <div class="feature">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12l6 6L21 6"/></svg>
+          </div>
+          <h3>No accounts, no setup</h3>
+          <p>No sign-in, no API key, no fiddling. Install, pick your stations, and you're done.</p>
+        </div>
+
+        <div class="feature">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+          </div>
+          <h3>Private by design</h3>
+          <p>No analytics. No ads. No third-party SDKs. Your profiles never leave your device.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <nav>
+      <a href="./support.html">Support</a>
+      <a href="./privacy.html">Privacy</a>
+    </nav>
+    <p>© CatchLink. Sound Transit and OneBusAway are trademarks of their respective owners. CatchLink is an independent project and is not affiliated with Sound Transit.</p>
+  </footer>
 </body>
 </html>
