@@ -254,16 +254,6 @@ section { padding: 0 24px; }
   inset: 0;
   background: #0b1622;
 }
-#route-map .leaflet-tile-pane {
-  filter: invert(1) hue-rotate(180deg) brightness(0.92) contrast(0.92) saturate(0.85);
-}
-#route-map .leaflet-control-attribution {
-  background: rgba(6, 10, 16, 0.55);
-  color: var(--ink-faint);
-  font-size: 10px;
-  backdrop-filter: blur(4px);
-}
-#route-map .leaflet-control-attribution a { color: var(--ink-dim); }
 #route-map .route-trail-glow { filter: blur(6px); }
 
 .journey-day-label {

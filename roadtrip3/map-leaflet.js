@@ -45,7 +45,7 @@
     /* ---------------- Map ---------------- */
     var map = L.map(mapEl, {
       zoomControl: false,
-      attributionControl: true,
+      attributionControl: false,
       zoomSnap: 0,
       zoomDelta: 0.25,
       dragging: false,
@@ -59,11 +59,6 @@
       markerZoomAnimation: false,
       inertia: false
     });
-
-    L.tileLayer("https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png", {
-      maxZoom: 17,
-      attribution: '&copy; OpenStreetMap contributors, SRTM | map style &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (CC-BY-SA)'
-    }).addTo(map);
 
     var latlngs = pts.map(function (p) { return [p[0], p[1]]; });
 
