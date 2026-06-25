@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>The Coast Road</title>
+<meta name="description" content="A private trip itinerary.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" type="image/png" href="/Assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<div class="progress-bar" id="progress-bar" aria-hidden="true"></div>
+
+<div class="gate" id="gate">
+  <div class="gate-bg" style="background-image:url('../images/hero.jpg')"></div>
+  <div class="gate-scrim"></div>
+  <div class="gate-card">
+    <span class="gate-lock" aria-hidden="true">&#10022;</span>
+    <p class="gate-eyebrow">A little surprise, take two</p>
+    <h1 class="gate-title">Pacific Coast,<br>Just the Two of Us</h1>
+    <p class="gate-sub">Enter the password to unlock it.</p>
+    <form id="gate-form" autocomplete="off">
+      <input type="password" id="gate-password" placeholder="Password" autocomplete="off" aria-label="Password">
+      <button type="submit">Unlock</button>
+    </form>
+    <p class="gate-error" id="gate-error" role="alert"></p>
+  </div>
+</div>
+
+<main id="content" class="content" hidden></main>
+
+<script src="../data.js"></script>
+<script src="../routedata.js"></script>
+<script type="module" src="map-3d.js"></script>
+<script src="../core.js"></script>
+</body>
+</html>
