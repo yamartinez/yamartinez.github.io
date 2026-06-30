@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Pacific Coast Road Trip</title>
+<meta name="description" content="A four-day Pacific Coast road trip itinerary — Seattle to the redwoods and back.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" type="image/png" href="/Assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="vendor/leaflet/leaflet.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="progress-bar" id="progress-bar" aria-hidden="true"></div>
+
+<main id="content" class="content is-revealed">
+
+<section class="letter" data-reveal>
+  <p class="letter-kicker">Pacific Coast road trip</p>
+  <p class="letter-body">
+    <span class="drop-cap">F</span>our days, one car, and roughly 1,500 miles of the most beautiful
+    coastline in the Pacific Northwest. Thor's Well swallowing the tide. Redwoods older than written
+    language. Fog peeling off cliffs at sunrise.
+  </p>
+  <p class="letter-body">
+    Every meal is mapped — vegan, gluten-free, actually good. Every stop is in order, the whole way
+    down. Just bring snacks.
+  </p>
+</section>
+
+<section class="vitals" data-reveal>
+  <div class="vital-card">
+    <span class="vital-icon" aria-hidden="true">🧭</span>
+    <span class="vital-label">Route</span>
+    <span class="vital-value">Seattle → Redwoods</span>
+    <span class="vital-sub">Down the coast and back</span>
+  </div>
+  <div class="vital-card">
+    <span class="vital-icon" aria-hidden="true">🚙</span>
+    <span class="vital-label">Ride</span>
+    <span class="vital-value">Hybrid SUV</span>
+    <span class="vital-sub">Sleeping in the car</span>
+  </div>
+  <div class="vital-card">
+    <span class="vital-icon" aria-hidden="true">🗓️</span>
+    <span class="vital-label">Length</span>
+    <span class="vital-value">4 days</span>
+    <span class="vital-sub">3 nights on the road</span>
+  </div>
+  <div class="vital-card">
+    <span class="vital-icon" aria-hidden="true">🌱</span>
+    <span class="vital-label">Food</span>
+    <span class="vital-value">Vegan + GF</span>
+    <span class="vital-sub">Mapped at every stop</span>
+  </div>
+</section>
+
+<section class="stats-row" data-reveal>
+  <div class="stat">
+    <span class="stat-number" data-target="1500" data-suffix="">0</span>
+    <span class="stat-label">miles of coastline</span>
+  </div>
+  <div class="stat">
+    <span class="stat-number" data-target="150" data-prefix="$">0</span>
+    <span class="stat-label">in gas, give or take</span>
+  </div>
+  <div class="stat">
+    <span class="stat-number" data-target="27" data-suffix="hrs">0</span>
+    <span class="stat-label">hours of driving</span>
+  </div>
+  <div class="stat">
+    <span class="stat-number" data-target="4" data-suffix="">0</span>
+    <span class="stat-label">days on the road</span>
+  </div>
+</section>
+
+<section class="journey-intro" data-reveal>
+  <h2 class="section-title">Follow the coast.</h2>
+  <p>Every stop, in order, the whole way down. Keep scrolling.</p>
+</section>
+
+<section class="journey" data-journey>
+  <div class="journey-stage" data-journey-stage>
+    <div class="journey-day-label" data-journey-day-label>
+      <span>Now approaching</span>
+      <strong data-journey-day-text>Seattle, WA</strong>
+    </div>
+    <div id="route-map"></div>
+    <div class="journey-mini-progress"><div class="journey-mini-progress-fill" data-journey-progress-fill></div></div>
+  </div>
+
+  <div class="journey-track" data-journey-track>
+
+    <div class="journey-beat" data-day="Day 1" data-loc="Seattle, WA">
+      <div class="journey-card journey-card--label" data-stop-frac="0" data-stop-lat="47.6062" data-stop-lon="-122.3321">
+        <span class="journey-card-tag">5:00 PM · Leaving Seattle</span>
+        <h2>The road south.</h2>
+        <p>Beat rush hour if we can, point the car south, and watch the city turn into trees. Sleep
+        somewhere near Yachats so we wake up two minutes from the ocean.</p>
+      </div>
+    </div>
+
+    <div class="journey-beat" data-day="Day 2" data-loc="Yachats, OR">
+      <article class="journey-card" data-stop-frac="0.274" data-stop-lat="44.2748" data-stop-lon="-124.1136">
+        <div class="journey-card-media"><img src="../roadtrip2/images/thors-well.jpg" alt="Thor's Well, a sinkhole on the Oregon coast swallowing ocean water" loading="lazy"></div>
+        <span class="journey-card-tag">Stop 1 · Yachats, OR</span>
+        <h3>Thor's Well <span class="badge star">★</span></h3>
+        <div class="journey-card-meta">
+          <a class="pin-link" href="https://maps.google.com/?q=Thor's+Well+Oregon" target="_blank" rel="noopener">📍 Open in Maps</a>
+          <span class="meta-chip">~30 min</span>
+        </div>
+        <p>A sinkhole in the basalt that looks like the ocean draining out of the world. Best near high
+        tide — we'll time it. Stay back from the edge, it's genuinely dangerous and genuinely worth it.</p>
+      </article>
+    </div>
+
+    <div class="journey-beat" data-day="Day 2" data-loc="Yachats, OR">
+      <article class="journey-card" data-stop-frac="0.2755" data-stop-lat="44.2899" data-stop-lon="-124.1076">
+        <div class="journey-card-media"><img src="../roadtrip2/images/cape-perpetua.jpg" alt="Sweeping coastal view from Cape Perpetua" loading="lazy"></div>
+        <span class="journey-card-tag">Stop 2 · Yachats, OR</span>
+        <h3>Cape Perpetua <span class="badge star">★</span></h3>
+        <div class="journey-card-meta">
+          <a class="pin-link" href="https://maps.google.com/?q=Cape+Perpetua+Visitor+Center" target="_blank" rel="noopener">📍 Open in Maps</a>
+        </div>
+        <p>The highest point on the Oregon Coast Highway — 800 feet up, with a view that makes the whole
+        drive feel small. Quick stretch of the legs, big payoff.</p>
+      </article>
+    </div>
+
+    <div class="journey-beat" data-day="Day 2" data-loc="Florence, OR">
+      <article class="journey-card" data-stop-frac="0.284196" data-stop-lat="44.1377" data-stop-lon="-124.1271">
+        <div class="journey-card-media"><img src="../roadtrip2/images/heceta-head.jpg" alt="Heceta Head Lighthouse perched above the Oregon coast" loading="lazy"></div>
+        <span class="journey-card-tag">Stop 3 · Florence, OR</span>
+        <h3>Heceta Head Lighthouse</h3>
+        <div class="journey-card-meta">
+          <a class="pin-link" href="https://maps.google.com/?q=Heceta+Head+Lighthouse" target="_blank" rel="noopener">📍 Open in Maps</a>
+        </div>
+        <p>Possibly the most photographed lighthouse on the West Coast, and it's not even close to
+        overrated. Short walk up from the parking area.</p>
+      </article>
+    </div>
+
+    <div class="journey-beat" data-day="Day 2" data-loc="Florence, OR">
+      <article class="journey-card" data-stop-frac="0.299978" data-stop-lat="43.88" data-stop-lon="-124.123">
+        <div class="journey-card-media"><img src="../roadtrip2/images/oregon-dunes.jpg" alt="View over the Oregon Dunes from the overlook" loading="lazy"></div>
+        <span class="journey-card-tag">Stop 4 · Florence, OR</span>
+        <h3>Oregon Dunes Overlook</h3>
+        <div class="journey-card-meta">
+          <a class="pin-link" href="https://maps.google.com/?q=Oregon+Dunes+Overlook" target="_blank" rel="noopener">📍 Open in Maps</a>
+        </div>
+        <p>Towering sand dunes that roll straight into the Pacific — the most "wait, we're still in
+        Oregon?" stop of the day. Lunch after at The Tin Thistle in North Bend
+        <span class="badge vegan">🌱</span><span class="badge gf">GF</span> — real vegan and gluten-free options, not an afterthought menu.</p>
+      </article>
+    </div>
+
+    <div class="journey-beat" data-day="Day 2" data-loc="Bandon, OR">
+      <article class="journey-card" data-stop-frac="0.362059" data-stop-lat="42.9889" data-stop-lon="-124.4327">
+        <div class="journey-card-media"><img src="../roadtrip2/images/face-rock.jpg" alt="Face Rock sea stack off the coast at Bandon, Oregon" loading="lazy"></div>
+        <span class="journey-card-tag">Stop 5 · Bandon, OR</span>
+        <h3>Face Rock</h3>
+        <div class="journey-card-meta">
+          <a class="pin-link" href="https://maps.google.com/?q=Face+Rock+State+Scenic+Viewpoint" target="_blank" rel="noopener">📍 Open in Maps</a>
+        </div>
+        <p>A sea stack off Bandon that local legend says is a Native princess turned to stone by a sea
+        monster. Great light in the late afternoon.</p>
+      </article>
+    </div>
+
+    <div class="journey-beat" data-day="Day 2" data-loc="Brookings, OR">
+      <article class="journey-card" data-stop-frac="0.417" data-stop-lat="42.1304" data-stop-lon="-124.3768">
+        <div class="journey-card-media"><img src="../roadtrip2/images/secret-beach.jpg" alt="Secret Beach within the Samuel H. Boardman corridor" loading="lazy"></div>
+        <span class="journey-card-tag">Stop 6 · Brookings, OR</span>
+        <h3>Secret Beach <span class="badge star">★</span></h3>
+        <div class="journey-card-meta">
+          <a class="pin-link" href="https://maps.google.com/?q=Secret+Beach+Brookings" target="_blank" rel="noopener">📍 Open in Maps</a>
+        </div>
+        <p>A short, slightly steep trail through the forest dumps you onto a cove most people driving
+        101 have no idea exists. Sea stacks, waterfalls, almost nobody around.</p>
+      </article>
+    </div>
+
+    <div class="journey-beat" data-day="Day 2" data-loc="Brookings, OR">
+      <article class="journey-card" data-stop-frac="0.418" data-stop-lat="42.1124" data-stop-lon="-124.3815">
+        <div class="journey-card-media"><img src="../roadtrip2/images/natural-bridges.jpg" alt="Natural rock bridges over a turquoise cove near Brookings" loading="lazy"></div>
+        <span class="journey-card-tag">Stop 7 · Brookings, OR</span>
+        <h3>Natural Bridges <span class="badge star">★</span></h3>
+        <div class="journey-card-meta">
+          <a class="pin-link" href="https://maps.google.com/?q=Natural+Bridges+Viewpoint+Brookings" target="_blank" rel="noopener">📍 Open in Maps</a>
+        </div>
+        <p>Sea arches carved straight through the headland, water glowing turquoise underneath. One of
+        the prettiest two-minute walks on the whole trip.</p>
+      </article>
+    </div>
+
+    <div class="journey-beat" data-day="Day 2" data-loc="Brookings, OR">
+      <article class="journey-card" data-stop-frac="0.419" data-stop-lat="42.1255" data-stop-lon="-124.3789">
+        <div class="journey-card-media"><img src="../roadtrip2/images/arch-rock.jpg" alt="Arch Rock viewpoint along the Oregon coast near Brookings" loading="lazy"></div>
+        <span class="journey-card-tag">Stop 8 · Brookings, OR</span>
+        <h3>Arch Rock</h3>
+        <div class="journey-card-meta">
+          <a class="pin-link" href="https://maps.google.com/?q=Arch+Rock+Viewpoint+Brookings" target="_blank" rel="noopener">📍 Open in Maps</a>
+        </div>
+        <p>Last big viewpoint before we cross into California. Good place to watch the sun start
+        dropping toward the water.</p>
+      </article>
+    </div>
+
+    <div class="journey-beat" data-day="Day 2" data-loc="Crescent City, CA">
+      <div class="journey-card journey-card--label" data-stop-frac="0.446" data-stop-lat="41.7558" data-stop-lon="-124.2026">
+        <span class="journey-card-tag">Crescent City, CA</span>
+        <h2>Dinner, then the redwoods.</h2>
+        <p>Good Harvest Cafe <span class="badge vegan">🌱</span><span class="badge gf">GF</span> for dinner,
+        then we camp at Jedediah Smith — or a quiet National Forest pullout along US-199 — backed right
+        up against the trees, ready for sunrise.</p>
+      </div>
+    </div>
+
+    <div class="journey-beat" data-day="Day 3" data-loc="Crescent City, CA">
+      <article class="journey-card" data-stop-frac="0.453" data-stop-lat="41.6936" data-stop-lon="-124.228">
+        <div class="journey-card-media"><img src="../roadtrip2/images/enderts-beach.jpg" alt="Sunrise view over Enderts Beach and the coastline" loading="lazy"></div>
+        <span class="journey-card-tag">Sunrise · Crescent City, CA</span>
+        <h3>Enderts Beach <span class="badge star">★</span></h3>
+        <div class="journey-card-meta">
+          <a class="pin-link" href="https://maps.google.com/?q=Enderts+Beach" target="_blank" rel="noopener">📍 Open in Maps</a>
+        </div>
+        <p>Coffee, a cliff, and the sun coming up over the Pacific. If you can drag yourself out of the
+        car for one sunrise this trip, make it this one.</p>
+      </article>
+    </div>
+
+    <div class="journey-beat" data-day="Day 3" data-loc="Crescent City, CA">
+      <article class="journey-card" data-stop-frac="0.461" data-stop-lat="41.7822" data-stop-lon="-124.0972">
+        <div class="journey-card-media"><img src="../roadtrip2/images/stout-grove.jpg" alt="Towering old-growth redwoods at Stout Grove" loading="lazy"></div>
+        <span class="journey-card-tag">Crescent City, CA</span>
+        <h3>Stout Grove <span class="badge star">★</span></h3>
+        <div class="journey-card-meta">
+          <a class="pin-link" href="https://maps.google.com/?q=Stout+Grove" target="_blank" rel="noopener">📍 Open in Maps</a>
+        </div>
+        <p>One of the most beautiful redwood groves anywhere in California, full stop. Flat, easy loop —
+        just look up the whole time.</p>
+      </article>
+    </div>
+
+    <div class="journey-beat" data-day="Day 3" data-loc="Crescent City, CA">
+      <article class="journey-card" data-stop-frac="0.469" data-stop-lat="41.7766" data-stop-lon="-124.07">
+        <div class="journey-card-media"><img src="../roadtrip2/images/howland-hill.jpg" alt="Sunlight filtering through redwoods along Howland Hill Road" loading="lazy"></div>
+        <span class="journey-card-tag">Crescent City, CA</span>
+        <h3>Howland Hill Road <span class="badge star">★</span></h3>
+        <div class="journey-card-meta">
+          <a class="pin-link" href="https://maps.google.com/?q=Howland+Hill+Road" target="_blank" rel="noopener">📍 Open in Maps</a>
+        </div>
+        <p>An unpaved road that tunnels straight through old-growth redwoods. Slow, narrow, and
+        completely worth the drive — windows down, no music needed.</p>
+      </article>
+    </div>
+
+    <div class="journey-beat" data-day="Day 3" data-loc="Crescent City, CA">
+      <article class="journey-card" data-stop-frac="0.477" data-stop-lat="41.8129" data-stop-lon="-124.0594">
+        <div class="journey-card-media"><img src="../roadtrip2/images/boy-scout-tree.jpg" alt="Trail through redwoods on the Boy Scout Tree Trail" loading="lazy"></div>
+        <span class="journey-card-tag">Crescent City, CA</span>
+        <h3>Boy Scout Tree Trail <span class="badge star">★</span></h3>
+        <div class="journey-card-meta">
+          <a class="pin-link" href="https://maps.google.com/?q=Boy+Scout+Tree+Trailhead" target="_blank" rel="noopener">📍 Open in Maps</a>
+          <span class="meta-chip">4.8 mi round trip</span>
+        </div>
+        <p>The real hike of the trip. Quiet, mossy, almost nobody else on it. Pack the picnic lunch in —
+        we'll eat it on the trail. (Pack food before we head in — nowhere to grab anything once we're
+        deep in the redwoods.)</p>
+      </article>
+    </div>
+
+    <div class="journey-beat" data-day="Day 3" data-loc="Redwood National Park, CA">
+      <div class="journey-card journey-card--choice" data-stop-frac="0.485" data-stop-lat="41.2865" data-stop-lon="-124.0492" data-kind="choice">
+        <h3 class="choice-heading">Afternoon: Pick Your Adventure</h3>
+        <p class="choice-sub">Both options are incredible. We can only realistically do one — vote below.</p>
+        <div class="choice-tabs" role="tablist">
+          <button class="choice-tab is-active" data-choice="a" role="tab" aria-selected="true">Option A · Fern Canyon</button>
+          <button class="choice-tab" data-choice="b" role="tab" aria-selected="false">Option B · Tall Trees</button>
+        </div>
+        <div class="choice-panel is-active" data-panel="a">
+          <div class="stop-card-mini">
+            <div class="stop-card-mini-media"><img src="../roadtrip2/images/fern-canyon.jpg" alt="Lush fern-covered walls of Fern Canyon" loading="lazy"></div>
+            <h4>Fern Canyon <span class="badge star">★</span></h4>
+            <p>Sheer 50-foot walls completely covered in ferns — yes, this is the Jurassic Park canyon.
+            <a class="pin-link" href="https://maps.google.com/?q=Fern+Canyon" target="_blank" rel="noopener">📍 Open in Maps</a></p>
+            <p class="warning-note">⚠️ Needs a reservation + day-use fee for Gold Bluffs Beach access.
+            <a href="https://redwoodparksconservancy.org/reservations/" target="_blank" rel="noopener">Reserve →</a></p>
+          </div>
+          <div class="stop-card-mini">
+            <div class="stop-card-mini-media"><img src="../roadtrip2/images/gold-bluffs.jpg" alt="Roosevelt elk resting in the grass at Gold Bluffs Beach" loading="lazy"></div>
+            <h4>Gold Bluffs Beach</h4>
+            <p>Wild beach backed by golden cliffs, usually scattered with Roosevelt elk doing absolutely
+            nothing and looking incredible while doing it.
+            <a class="pin-link" href="https://maps.google.com/?q=Gold+Bluffs+Beach" target="_blank" rel="noopener">📍 Open in Maps</a></p>
+          </div>
+        </div>
+        <div class="choice-panel" data-panel="b">
+          <div class="stop-card-mini">
+            <div class="stop-card-mini-media"><img src="../roadtrip2/images/tall-trees.jpg" alt="Some of the tallest trees on Earth at Tall Trees Grove" loading="lazy"></div>
+            <h4>Tall Trees Grove</h4>
+            <p>Home to some of the tallest trees on the planet. Quiet, remote, far fewer people make it
+            out here. <a class="pin-link" href="https://maps.google.com/?q=Tall+Trees+Trailhead" target="_blank" rel="noopener">📍 Open in Maps</a></p>
+            <p class="warning-note">⚠️ Free reservation required year-round, gate code emailed beforehand.
+            <a href="https://www.nps.gov/redw/planyourvisit/talltreespermits.htm" target="_blank" rel="noopener">Reserve →</a></p>
+          </div>
+          <div class="stop-card-mini">
+            <div class="stop-card-mini-media"><img src="../roadtrip2/images/lady-bird-johnson.jpg" alt="Lady Bird Johnson Grove trail among the redwoods" loading="lazy"></div>
+            <h4>Lady Bird Johnson Grove</h4>
+            <p>An easy 1.5-mile loop through a grove named for the woman who helped get this whole park
+            protected. Calm, mossy, easy walking after a big morning.
+            <a class="pin-link" href="https://maps.google.com/?q=Lady+Bird+Johnson+Grove" target="_blank" rel="noopener">📍 Open in Maps</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="journey-beat" data-day="Day 3" data-loc="Crescent City, CA">
+      <div class="journey-card journey-card--label" data-stop-frac="0.5" data-stop-lat="41.7558" data-stop-lon="-124.2026">
+        <span class="journey-card-tag">Golden hour</span>
+        <h2>Sunset, same coast.</h2>
+        <p>Back to Enderts Beach or the Crescent Beach Overlook — whichever we're closer to — to bookend
+        the day the way we started it. Then one more push inland toward Grants Pass so the drive
+        home is shorter.</p>
+      </div>
+    </div>
+
+    <div class="journey-beat" data-day="Day 4" data-loc="Ashland, OR">
+      <article class="journey-card" data-stop-frac="0.618346" data-stop-lat="42.1946" data-stop-lon="-122.7095">
+        <div class="journey-card-media"><img src="../roadtrip2/images/lithia-park.jpg" alt="Lithia Park in Ashland, Oregon with fall color along the creek" loading="lazy"></div>
+        <span class="journey-card-tag">Optional stop · Ashland, OR</span>
+        <h3>Lithia Park</h3>
+        <div class="journey-card-meta">
+          <a class="pin-link" href="https://maps.google.com/?q=Lithia+Park" target="_blank" rel="noopener">📍 Open in Maps</a>
+        </div>
+        <p>Breakfast first at Pangea <span class="badge vegan">🌱</span><span class="badge gf">GF</span> —
+        fully vegan, gluten-free options that don't feel like an apology. Then a short, easy walk through
+        one of the prettiest little city parks on the coast before seven hours in the car.</p>
+      </article>
+    </div>
+
+    <div class="journey-beat" data-day="Day 4" data-loc="Seattle, WA">
+      <div class="journey-card journey-card--label" data-stop-frac="1" data-stop-lat="47.6062" data-stop-lon="-122.3321">
+        <span class="journey-card-tag">8–10 PM · Expected arrival</span>
+        <h2>Back in Seattle.</h2>
+        <p>Tired, sandy, full of redwoods and ocean air, already planning the next one.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="lists-section" data-reveal>
+  <h2 class="section-title">Getting Ready</h2>
+  <p class="section-sub">Check things off as we pack — it'll save here.</p>
+  <div class="lists-grid">
+    <div class="list-col">
+      <h3>🎒 Packing</h3>
+      <ul class="checklist" data-checklist="packing">
+        <li><label><input type="checkbox"><span>Reflectix window covers</span></label></li>
+        <li><label><input type="checkbox"><span>Camp chairs</span></label></li>
+        <li><label><input type="checkbox"><span>Jetboil</span></label></li>
+        <li><label><input type="checkbox"><span>Cooler</span></label></li>
+        <li><label><input type="checkbox"><span>Ice</span></label></li>
+        <li><label><input type="checkbox"><span>Hiking shoes</span></label></li>
+        <li><label><input type="checkbox"><span>Headlamps</span></label></li>
+        <li><label><input type="checkbox"><span>Bug spray</span></label></li>
+        <li><label><input type="checkbox"><span>Power bank</span></label></li>
+        <li><label><input type="checkbox"><span>Offline Google Maps downloaded</span></label></li>
+        <li><label><input type="checkbox"><span>National Park Pass (optional)</span></label></li>
+      </ul>
+    </div>
+    <div class="list-col">
+      <h3>🛒 Groceries</h3>
+      <p class="list-sub">Breakfast</p>
+      <ul class="checklist" data-checklist="grocery">
+        <li><label><input type="checkbox"><span>Overnight oats</span></label></li>
+        <li><label><input type="checkbox"><span>Oat milk</span></label></li>
+        <li><label><input type="checkbox"><span>Fruit</span></label></li>
+        <li><label><input type="checkbox"><span>Peanut butter</span></label></li>
+        <li><label><input type="checkbox"><span>Bananas</span></label></li>
+      </ul>
+      <p class="list-sub">Lunch</p>
+      <ul class="checklist" data-checklist="grocery">
+        <li><label><input type="checkbox"><span>Hummus</span></label></li>
+        <li><label><input type="checkbox"><span>GF tortillas</span></label></li>
+        <li><label><input type="checkbox"><span>Avocados</span></label></li>
+        <li><label><input type="checkbox"><span>Veggies</span></label></li>
+        <li><label><input type="checkbox"><span>Chips</span></label></li>
+      </ul>
+      <p class="list-sub">Snacks</p>
+      <ul class="checklist" data-checklist="grocery">
+        <li><label><input type="checkbox"><span>Trail mix</span></label></li>
+        <li><label><input type="checkbox"><span>Protein bars</span></label></li>
+        <li><label><input type="checkbox"><span>Apples</span></label></li>
+        <li><label><input type="checkbox"><span>Electrolytes</span></label></li>
+      </ul>
+      <p class="list-sub">Dinner backup</p>
+      <ul class="checklist" data-checklist="grocery">
+        <li><label><input type="checkbox"><span>Instant rice</span></label></li>
+        <li><label><input type="checkbox"><span>Vegan chili</span></label></li>
+        <li><label><input type="checkbox"><span>Instant ramen (GF)</span></label></li>
+        <li><label><input type="checkbox"><span>Shelf-stable tofu</span></label></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="highlights-section" data-reveal>
+  <h2 class="section-title">If We Only Hit the Highlights</h2>
+  <div class="highlights-grid">
+    <a class="highlight-chip" href="https://maps.google.com/?q=Thor's+Well+Oregon" target="_blank" rel="noopener"><img src="../roadtrip2/images/thors-well.jpg" alt="" loading="lazy"><span>Thor's Well</span></a>
+    <a class="highlight-chip" href="https://maps.google.com/?q=Cape+Perpetua+Visitor+Center" target="_blank" rel="noopener"><img src="../roadtrip2/images/cape-perpetua.jpg" alt="" loading="lazy"><span>Cape Perpetua</span></a>
+    <a class="highlight-chip" href="https://maps.google.com/?q=Natural+Bridges+Viewpoint+Brookings" target="_blank" rel="noopener"><img src="../roadtrip2/images/natural-bridges.jpg" alt="" loading="lazy"><span>Natural Bridges</span></a>
+    <a class="highlight-chip" href="https://maps.google.com/?q=Secret+Beach+Brookings" target="_blank" rel="noopener"><img src="../roadtrip2/images/secret-beach.jpg" alt="" loading="lazy"><span>Secret Beach</span></a>
+    <a class="highlight-chip" href="https://maps.google.com/?q=Stout+Grove" target="_blank" rel="noopener"><img src="../roadtrip2/images/stout-grove.jpg" alt="" loading="lazy"><span>Stout Grove</span></a>
+    <a class="highlight-chip" href="https://maps.google.com/?q=Howland+Hill+Road" target="_blank" rel="noopener"><img src="../roadtrip2/images/howland-hill.jpg" alt="" loading="lazy"><span>Howland Hill Road</span></a>
+    <a class="highlight-chip" href="https://maps.google.com/?q=Boy+Scout+Tree+Trailhead" target="_blank" rel="noopener"><img src="../roadtrip2/images/boy-scout-tree.jpg" alt="" loading="lazy"><span>Boy Scout Tree Trail</span></a>
+    <a class="highlight-chip" href="https://maps.google.com/?q=Fern+Canyon" target="_blank" rel="noopener"><img src="../roadtrip2/images/fern-canyon.jpg" alt="" loading="lazy"><span>Fern Canyon</span></a>
+    <a class="highlight-chip" href="https://maps.google.com/?q=Enderts+Beach" target="_blank" rel="noopener"><img src="../roadtrip2/images/enderts-beach.jpg" alt="" loading="lazy"><span>Enderts Beach</span></a>
+  </div>
+</section>
+
+<section class="closing" data-reveal>
+  <p class="closing-kicker">The plan —</p>
+  <h2 class="closing-title">Four days. One car. The whole coast.</h2>
+  <p class="closing-body">Drive the whole way, stop wherever's worth stopping longer, and keep the
+  cooler full of snacks you can actually eat. That's the trip.</p>
+  <button class="cta-button" id="cta-yes">Let's go. 🚗💛</button>
+  <p class="closing-footnote" id="cta-response" aria-live="polite"></p>
+</section>
+
+</main>
+
+<script src="routedata.js"></script>
+<script src="vendor/leaflet/leaflet.js"></script>
+<script src="map-leaflet.js"></script>
+<script src="core.js"></script>
+</body>
+</html>
