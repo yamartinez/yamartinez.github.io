@@ -17,76 +17,91 @@
 
 <div class="progress-bar" id="progress-bar" aria-hidden="true"></div>
 
+<div class="lang-switch" role="group" aria-label="Language">
+  <button type="button" data-lang="en" class="is-active" aria-pressed="true">EN</button>
+  <button type="button" data-lang="es" aria-pressed="false">ES</button>
+</div>
+
 <main id="content" class="content is-revealed">
 
 <section class="letter" data-reveal>
-  <p class="letter-kicker">Pacific Coast road trip</p>
-  <p class="letter-body">
+  <p class="letter-kicker"><span class="lang-en">Pacific Coast road trip</span><span class="lang-es">Viaje por la Costa del Pacífico</span></p>
+  <p class="letter-body lang-en">
     <span class="drop-cap">F</span>our days, one car, and roughly 1,500 miles of the most beautiful
     coastline in the Pacific Northwest. Thor's Well swallowing the tide. Redwoods older than written
     language. Fog peeling off cliffs at sunrise.
   </p>
-  <p class="letter-body">
+  <p class="letter-body lang-es">
+    <span class="drop-cap">C</span>uatro días, un auto y unas 1,500 millas de la costa más hermosa del
+    noroeste del Pacífico. Thor's Well tragándose la marea. Secuoyas más antiguas que la palabra
+    escrita. Niebla desprendiéndose de los acantilados al amanecer.
+  </p>
+  <p class="letter-body lang-en">
     Every meal is mapped — vegan, gluten-free, actually good. Every stop is in order, the whole way
     down. Just bring snacks.
+  </p>
+  <p class="letter-body lang-es">
+    Cada comida está planeada — vegana, sin gluten, de verdad rica. Cada parada en orden, todo el
+    camino hacia el sur. Solo trae snacks.
   </p>
 </section>
 
 <section class="vitals" data-reveal>
   <div class="vital-card">
     <span class="vital-icon" aria-hidden="true">🧭</span>
-    <span class="vital-label">Route</span>
-    <span class="vital-value">Seattle → Redwoods</span>
-    <span class="vital-sub">Down the coast and back</span>
+    <span class="vital-label lang-en">Route</span><span class="vital-label lang-es">Ruta</span>
+    <span class="vital-value lang-en">Seattle → Redwoods</span><span class="vital-value lang-es">Seattle → Secuoyas</span>
+    <span class="vital-sub lang-en">Down the coast and back</span><span class="vital-sub lang-es">Por la costa, ida y vuelta</span>
   </div>
   <div class="vital-card">
     <span class="vital-icon" aria-hidden="true">🚙</span>
-    <span class="vital-label">Ride</span>
-    <span class="vital-value">Hybrid SUV</span>
-    <span class="vital-sub">Sleeping in the car</span>
+    <span class="vital-label lang-en">Ride</span><span class="vital-label lang-es">Vehículo</span>
+    <span class="vital-value lang-en">Hybrid SUV</span><span class="vital-value lang-es">SUV híbrida</span>
+    <span class="vital-sub lang-en">Sleeping in the car</span><span class="vital-sub lang-es">Durmiendo en el auto</span>
   </div>
   <div class="vital-card">
     <span class="vital-icon" aria-hidden="true">🗓️</span>
-    <span class="vital-label">Length</span>
-    <span class="vital-value">4 days</span>
-    <span class="vital-sub">3 nights on the road</span>
+    <span class="vital-label lang-en">Length</span><span class="vital-label lang-es">Duración</span>
+    <span class="vital-value lang-en">4 days</span><span class="vital-value lang-es">4 días</span>
+    <span class="vital-sub lang-en">3 nights on the road</span><span class="vital-sub lang-es">3 noches en la carretera</span>
   </div>
   <div class="vital-card">
     <span class="vital-icon" aria-hidden="true">🌱</span>
-    <span class="vital-label">Food</span>
-    <span class="vital-value">Vegan + GF</span>
-    <span class="vital-sub">Mapped at every stop</span>
+    <span class="vital-label lang-en">Food</span><span class="vital-label lang-es">Comida</span>
+    <span class="vital-value lang-en">Vegan + GF</span><span class="vital-value lang-es">Vegana + SG</span>
+    <span class="vital-sub lang-en">Mapped at every stop</span><span class="vital-sub lang-es">Planeada en cada parada</span>
   </div>
 </section>
 
 <section class="stats-row" data-reveal>
   <div class="stat">
     <span class="stat-number" data-target="1500" data-suffix="">0</span>
-    <span class="stat-label">miles of coastline</span>
+    <span class="stat-label lang-en">miles of coastline</span><span class="stat-label lang-es">millas de costa</span>
   </div>
   <div class="stat">
     <span class="stat-number" data-target="150" data-prefix="$">0</span>
-    <span class="stat-label">in gas, give or take</span>
+    <span class="stat-label lang-en">in gas, give or take</span><span class="stat-label lang-es">en gasolina, más o menos</span>
   </div>
   <div class="stat">
     <span class="stat-number" data-target="27" data-suffix="hrs">0</span>
-    <span class="stat-label">hours of driving</span>
+    <span class="stat-label lang-en">hours of driving</span><span class="stat-label lang-es">horas de manejo</span>
   </div>
   <div class="stat">
     <span class="stat-number" data-target="4" data-suffix="">0</span>
-    <span class="stat-label">days on the road</span>
+    <span class="stat-label lang-en">days on the road</span><span class="stat-label lang-es">días en la carretera</span>
   </div>
 </section>
 
 <section class="journey-intro" data-reveal>
-  <h2 class="section-title">Follow the coast.</h2>
-  <p>Every stop, in order, the whole way down. Keep scrolling.</p>
+  <h2 class="section-title lang-en">Follow the coast.</h2><h2 class="section-title lang-es">Sigue la costa.</h2>
+  <p class="lang-en">Every stop, in order, the whole way down. Keep scrolling.</p>
+  <p class="lang-es">Cada parada, en orden, todo el camino hacia el sur. Sigue bajando.</p>
 </section>
 
 <section class="journey" data-journey>
   <div class="journey-stage" data-journey-stage>
     <div class="journey-day-label" data-journey-day-label>
-      <span>Now approaching</span>
+      <span><span class="lang-en">Now approaching</span><span class="lang-es">Próxima parada</span></span>
       <strong data-journey-day-text>Seattle, WA</strong>
     </div>
     <div id="route-map"></div>
@@ -97,139 +112,163 @@
 
     <div class="journey-beat" data-day="Day 1" data-loc="Seattle, WA">
       <div class="journey-card journey-card--label" data-stop-frac="0" data-stop-lat="47.6062" data-stop-lon="-122.3321">
-        <span class="journey-card-tag">5:00 PM · Leaving Seattle</span>
-        <h2>The road south.</h2>
-        <p>Beat rush hour if we can, point the car south, and watch the city turn into trees. Sleep
+        <span class="journey-card-tag lang-en">5:00 PM · Leaving Seattle</span><span class="journey-card-tag lang-es">5:00 PM · Saliendo de Seattle</span>
+        <h2 class="lang-en">The road south.</h2><h2 class="lang-es">Rumbo al sur.</h2>
+        <p class="lang-en">Beat rush hour if we can, point the car south, and watch the city turn into trees. Sleep
         somewhere near Yachats so we wake up two minutes from the ocean.</p>
+        <p class="lang-es">Escapar del tráfico si podemos, apuntar el auto al sur y ver la ciudad convertirse en
+        bosque. Dormir cerca de Yachats para despertar a dos minutos del mar.</p>
       </div>
     </div>
 
     <div class="journey-beat" data-day="Day 2" data-loc="Yachats, OR">
       <article class="journey-card" data-stop-frac="0.274" data-stop-lat="44.2748" data-stop-lon="-124.1136">
         <div class="journey-card-media"><img src="../roadtrip2/images/thors-well.jpg" alt="Thor's Well, a sinkhole on the Oregon coast swallowing ocean water" loading="lazy"></div>
-        <span class="journey-card-tag">Stop 1 · Yachats, OR</span>
+        <span class="journey-card-tag lang-en">Stop 1 · Yachats, OR</span><span class="journey-card-tag lang-es">Parada 1 · Yachats, OR</span>
         <h3>Thor's Well <span class="badge star">★</span></h3>
         <div class="journey-card-meta">
-          <a class="pin-link" href="https://maps.google.com/?q=Thor's+Well+Oregon" target="_blank" rel="noopener">📍 Open in Maps</a>
+          <a class="pin-link" href="https://maps.google.com/?q=Thor's+Well+Oregon" target="_blank" rel="noopener">📍 <span class="lang-en">Open in Maps</span><span class="lang-es">Abrir en Maps</span></a>
           <span class="meta-chip">~30 min</span>
         </div>
-        <p>A sinkhole in the basalt that looks like the ocean draining out of the world. Best near high
+        <p class="lang-en">A sinkhole in the basalt that looks like the ocean draining out of the world. Best near high
         tide — we'll time it. Stay back from the edge, it's genuinely dangerous and genuinely worth it.</p>
+        <p class="lang-es">Un sumidero en el basalto que parece el océano vaciándose del mundo. Mejor cerca de la marea
+        alta — lo calcularemos. Mantente lejos del borde: es de verdad peligroso y de verdad vale la pena.</p>
       </article>
     </div>
 
     <div class="journey-beat" data-day="Day 2" data-loc="Yachats, OR">
       <article class="journey-card" data-stop-frac="0.2755" data-stop-lat="44.2899" data-stop-lon="-124.1076">
         <div class="journey-card-media"><img src="../roadtrip2/images/cape-perpetua.jpg" alt="Sweeping coastal view from Cape Perpetua" loading="lazy"></div>
-        <span class="journey-card-tag">Stop 2 · Yachats, OR</span>
+        <span class="journey-card-tag lang-en">Stop 2 · Yachats, OR</span><span class="journey-card-tag lang-es">Parada 2 · Yachats, OR</span>
         <h3>Cape Perpetua <span class="badge star">★</span></h3>
         <div class="journey-card-meta">
-          <a class="pin-link" href="https://maps.google.com/?q=Cape+Perpetua+Visitor+Center" target="_blank" rel="noopener">📍 Open in Maps</a>
+          <a class="pin-link" href="https://maps.google.com/?q=Cape+Perpetua+Visitor+Center" target="_blank" rel="noopener">📍 <span class="lang-en">Open in Maps</span><span class="lang-es">Abrir en Maps</span></a>
         </div>
-        <p>The highest point on the Oregon Coast Highway — 800 feet up, with a view that makes the whole
+        <p class="lang-en">The highest point on the Oregon Coast Highway — 800 feet up, with a view that makes the whole
         drive feel small. Quick stretch of the legs, big payoff.</p>
+        <p class="lang-es">El punto más alto de la carretera costera de Oregón — 800 pies de altura, con una vista que
+        hace que todo el viaje se sienta pequeño. Un breve estiramiento de piernas, gran recompensa.</p>
       </article>
     </div>
 
     <div class="journey-beat" data-day="Day 2" data-loc="Florence, OR">
       <article class="journey-card" data-stop-frac="0.284196" data-stop-lat="44.1377" data-stop-lon="-124.1271">
         <div class="journey-card-media"><img src="../roadtrip2/images/heceta-head.jpg" alt="Heceta Head Lighthouse perched above the Oregon coast" loading="lazy"></div>
-        <span class="journey-card-tag">Stop 3 · Florence, OR</span>
+        <span class="journey-card-tag lang-en">Stop 3 · Florence, OR</span><span class="journey-card-tag lang-es">Parada 3 · Florence, OR</span>
         <h3>Heceta Head Lighthouse</h3>
         <div class="journey-card-meta">
-          <a class="pin-link" href="https://maps.google.com/?q=Heceta+Head+Lighthouse" target="_blank" rel="noopener">📍 Open in Maps</a>
+          <a class="pin-link" href="https://maps.google.com/?q=Heceta+Head+Lighthouse" target="_blank" rel="noopener">📍 <span class="lang-en">Open in Maps</span><span class="lang-es">Abrir en Maps</span></a>
         </div>
-        <p>Possibly the most photographed lighthouse on the West Coast, and it's not even close to
+        <p class="lang-en">Possibly the most photographed lighthouse on the West Coast, and it's not even close to
         overrated. Short walk up from the parking area.</p>
+        <p class="lang-es">Posiblemente el faro más fotografiado de la Costa Oeste, y no está para nada sobrevalorado.
+        Una corta caminata desde el estacionamiento.</p>
       </article>
     </div>
 
     <div class="journey-beat" data-day="Day 2" data-loc="Florence, OR">
       <article class="journey-card" data-stop-frac="0.299978" data-stop-lat="43.88" data-stop-lon="-124.123">
         <div class="journey-card-media"><img src="../roadtrip2/images/oregon-dunes.jpg" alt="View over the Oregon Dunes from the overlook" loading="lazy"></div>
-        <span class="journey-card-tag">Stop 4 · Florence, OR</span>
+        <span class="journey-card-tag lang-en">Stop 4 · Florence, OR</span><span class="journey-card-tag lang-es">Parada 4 · Florence, OR</span>
         <h3>Oregon Dunes Overlook</h3>
         <div class="journey-card-meta">
-          <a class="pin-link" href="https://maps.google.com/?q=Oregon+Dunes+Overlook" target="_blank" rel="noopener">📍 Open in Maps</a>
+          <a class="pin-link" href="https://maps.google.com/?q=Oregon+Dunes+Overlook" target="_blank" rel="noopener">📍 <span class="lang-en">Open in Maps</span><span class="lang-es">Abrir en Maps</span></a>
         </div>
-        <p>Towering sand dunes that roll straight into the Pacific — the most "wait, we're still in
+        <p class="lang-en">Towering sand dunes that roll straight into the Pacific — the most "wait, we're still in
         Oregon?" stop of the day. Lunch after at The Tin Thistle in North Bend
         <span class="badge vegan">🌱</span><span class="badge gf">GF</span> — real vegan and gluten-free options, not an afterthought menu.</p>
+        <p class="lang-es">Enormes dunas de arena que caen directo al Pacífico — la parada más "¿espera, seguimos en
+        Oregón?" del día. Después, almuerzo en The Tin Thistle en North Bend
+        <span class="badge vegan">🌱</span><span class="badge gf">SG</span> — opciones veganas y sin gluten de verdad, no un menú de relleno.</p>
       </article>
     </div>
 
     <div class="journey-beat" data-day="Day 2" data-loc="Bandon, OR">
       <article class="journey-card" data-stop-frac="0.362059" data-stop-lat="42.9889" data-stop-lon="-124.4327">
         <div class="journey-card-media"><img src="../roadtrip2/images/face-rock.jpg" alt="Face Rock sea stack off the coast at Bandon, Oregon" loading="lazy"></div>
-        <span class="journey-card-tag">Stop 5 · Bandon, OR</span>
+        <span class="journey-card-tag lang-en">Stop 5 · Bandon, OR</span><span class="journey-card-tag lang-es">Parada 5 · Bandon, OR</span>
         <h3>Face Rock</h3>
         <div class="journey-card-meta">
-          <a class="pin-link" href="https://maps.google.com/?q=Face+Rock+State+Scenic+Viewpoint" target="_blank" rel="noopener">📍 Open in Maps</a>
+          <a class="pin-link" href="https://maps.google.com/?q=Face+Rock+State+Scenic+Viewpoint" target="_blank" rel="noopener">📍 <span class="lang-en">Open in Maps</span><span class="lang-es">Abrir en Maps</span></a>
         </div>
-        <p>A sea stack off Bandon that local legend says is a Native princess turned to stone by a sea
+        <p class="lang-en">A sea stack off Bandon that local legend says is a Native princess turned to stone by a sea
         monster. Great light in the late afternoon.</p>
+        <p class="lang-es">Un peñón marino frente a Bandon que, según la leyenda local, es una princesa nativa
+        convertida en piedra por un monstruo marino. Hermosa luz al caer la tarde.</p>
       </article>
     </div>
 
     <div class="journey-beat" data-day="Day 2" data-loc="Brookings, OR">
       <article class="journey-card" data-stop-frac="0.417" data-stop-lat="42.1304" data-stop-lon="-124.3768">
         <div class="journey-card-media"><img src="../roadtrip2/images/secret-beach.jpg" alt="Secret Beach within the Samuel H. Boardman corridor" loading="lazy"></div>
-        <span class="journey-card-tag">Stop 6 · Brookings, OR</span>
+        <span class="journey-card-tag lang-en">Stop 6 · Brookings, OR</span><span class="journey-card-tag lang-es">Parada 6 · Brookings, OR</span>
         <h3>Secret Beach <span class="badge star">★</span></h3>
         <div class="journey-card-meta">
-          <a class="pin-link" href="https://maps.google.com/?q=Secret+Beach+Brookings" target="_blank" rel="noopener">📍 Open in Maps</a>
+          <a class="pin-link" href="https://maps.google.com/?q=Secret+Beach+Brookings" target="_blank" rel="noopener">📍 <span class="lang-en">Open in Maps</span><span class="lang-es">Abrir en Maps</span></a>
         </div>
-        <p>A short, slightly steep trail through the forest dumps you onto a cove most people driving
+        <p class="lang-en">A short, slightly steep trail through the forest dumps you onto a cove most people driving
         101 have no idea exists. Sea stacks, waterfalls, almost nobody around.</p>
+        <p class="lang-es">Un sendero corto y algo empinado por el bosque te deja en una cala que casi nadie que maneja
+        por la 101 sabe que existe. Peñones, cascadas y casi nadie alrededor.</p>
       </article>
     </div>
 
     <div class="journey-beat" data-day="Day 2" data-loc="Brookings, OR">
       <article class="journey-card" data-stop-frac="0.418" data-stop-lat="42.1124" data-stop-lon="-124.3815">
         <div class="journey-card-media"><img src="../roadtrip2/images/natural-bridges.jpg" alt="Natural rock bridges over a turquoise cove near Brookings" loading="lazy"></div>
-        <span class="journey-card-tag">Stop 7 · Brookings, OR</span>
+        <span class="journey-card-tag lang-en">Stop 7 · Brookings, OR</span><span class="journey-card-tag lang-es">Parada 7 · Brookings, OR</span>
         <h3>Natural Bridges <span class="badge star">★</span></h3>
         <div class="journey-card-meta">
-          <a class="pin-link" href="https://maps.google.com/?q=Natural+Bridges+Viewpoint+Brookings" target="_blank" rel="noopener">📍 Open in Maps</a>
+          <a class="pin-link" href="https://maps.google.com/?q=Natural+Bridges+Viewpoint+Brookings" target="_blank" rel="noopener">📍 <span class="lang-en">Open in Maps</span><span class="lang-es">Abrir en Maps</span></a>
         </div>
-        <p>Sea arches carved straight through the headland, water glowing turquoise underneath. One of
+        <p class="lang-en">Sea arches carved straight through the headland, water glowing turquoise underneath. One of
         the prettiest two-minute walks on the whole trip.</p>
+        <p class="lang-es">Arcos de roca tallados a través del promontorio, con agua turquesa brillando debajo. Una de
+        las caminatas de dos minutos más bonitas de todo el viaje.</p>
       </article>
     </div>
 
     <div class="journey-beat" data-day="Day 2" data-loc="Brookings, OR">
       <article class="journey-card" data-stop-frac="0.419" data-stop-lat="42.1255" data-stop-lon="-124.3789">
         <div class="journey-card-media"><img src="../roadtrip2/images/arch-rock.jpg" alt="Arch Rock viewpoint along the Oregon coast near Brookings" loading="lazy"></div>
-        <span class="journey-card-tag">Stop 8 · Brookings, OR</span>
+        <span class="journey-card-tag lang-en">Stop 8 · Brookings, OR</span><span class="journey-card-tag lang-es">Parada 8 · Brookings, OR</span>
         <h3>Arch Rock</h3>
         <div class="journey-card-meta">
-          <a class="pin-link" href="https://maps.google.com/?q=Arch+Rock+Viewpoint+Brookings" target="_blank" rel="noopener">📍 Open in Maps</a>
+          <a class="pin-link" href="https://maps.google.com/?q=Arch+Rock+Viewpoint+Brookings" target="_blank" rel="noopener">📍 <span class="lang-en">Open in Maps</span><span class="lang-es">Abrir en Maps</span></a>
         </div>
-        <p>Last big viewpoint before we cross into California. Good place to watch the sun start
+        <p class="lang-en">Last big viewpoint before we cross into California. Good place to watch the sun start
         dropping toward the water.</p>
+        <p class="lang-es">El último gran mirador antes de cruzar a California. Buen lugar para ver el sol empezar a
+        caer hacia el agua.</p>
       </article>
     </div>
 
     <div class="journey-beat" data-day="Day 2" data-loc="Crescent City, CA">
       <div class="journey-card journey-card--label" data-stop-frac="0.446" data-stop-lat="41.7558" data-stop-lon="-124.2026">
         <span class="journey-card-tag">Crescent City, CA</span>
-        <h2>Dinner, then the redwoods.</h2>
-        <p>Good Harvest Cafe <span class="badge vegan">🌱</span><span class="badge gf">GF</span> for dinner,
+        <h2 class="lang-en">Dinner, then the redwoods.</h2><h2 class="lang-es">Cena, y luego las secuoyas.</h2>
+        <p class="lang-en">Good Harvest Cafe <span class="badge vegan">🌱</span><span class="badge gf">GF</span> for dinner,
         then we camp at Jedediah Smith — or a quiet National Forest pullout along US-199 — backed right
         up against the trees, ready for sunrise.</p>
+        <p class="lang-es">Cena en Good Harvest Cafe <span class="badge vegan">🌱</span><span class="badge gf">SG</span>,
+        y luego acampamos en Jedediah Smith — o en un apartadero tranquilo del Bosque Nacional por la
+        US-199 — pegados a los árboles, listos para el amanecer.</p>
       </div>
     </div>
 
     <div class="journey-beat" data-day="Day 3" data-loc="Crescent City, CA">
       <article class="journey-card" data-stop-frac="0.453" data-stop-lat="41.6936" data-stop-lon="-124.228">
         <div class="journey-card-media"><img src="../roadtrip2/images/enderts-beach.jpg" alt="Sunrise view over Enderts Beach and the coastline" loading="lazy"></div>
-        <span class="journey-card-tag">Sunrise · Crescent City, CA</span>
+        <span class="journey-card-tag lang-en">Sunrise · Crescent City, CA</span><span class="journey-card-tag lang-es">Amanecer · Crescent City, CA</span>
         <h3>Enderts Beach <span class="badge star">★</span></h3>
         <div class="journey-card-meta">
-          <a class="pin-link" href="https://maps.google.com/?q=Enderts+Beach" target="_blank" rel="noopener">📍 Open in Maps</a>
+          <a class="pin-link" href="https://maps.google.com/?q=Enderts+Beach" target="_blank" rel="noopener">📍 <span class="lang-en">Open in Maps</span><span class="lang-es">Abrir en Maps</span></a>
         </div>
-        <p>Coffee, a cliff, and the sun coming up over the Pacific. If you can drag yourself out of the
+        <p class="lang-en">Coffee, a cliff, and the sun coming up over the Pacific. If you can drag yourself out of the
         car for one sunrise this trip, make it this one.</p>
+        <p class="lang-es">Café, un acantilado y el sol saliendo sobre el Pacífico. Si logras salir del auto para un
+        solo amanecer en este viaje, que sea este.</p>
       </article>
     </div>
 
@@ -239,10 +278,12 @@
         <span class="journey-card-tag">Crescent City, CA</span>
         <h3>Stout Grove <span class="badge star">★</span></h3>
         <div class="journey-card-meta">
-          <a class="pin-link" href="https://maps.google.com/?q=Stout+Grove" target="_blank" rel="noopener">📍 Open in Maps</a>
+          <a class="pin-link" href="https://maps.google.com/?q=Stout+Grove" target="_blank" rel="noopener">📍 <span class="lang-en">Open in Maps</span><span class="lang-es">Abrir en Maps</span></a>
         </div>
-        <p>One of the most beautiful redwood groves anywhere in California, full stop. Flat, easy loop —
+        <p class="lang-en">One of the most beautiful redwood groves anywhere in California, full stop. Flat, easy loop —
         just look up the whole time.</p>
+        <p class="lang-es">Uno de los bosques de secuoyas más hermosos de toda California, punto. Sendero plano y fácil
+        — solo mira hacia arriba todo el tiempo.</p>
       </article>
     </div>
 
@@ -252,10 +293,12 @@
         <span class="journey-card-tag">Crescent City, CA</span>
         <h3>Howland Hill Road <span class="badge star">★</span></h3>
         <div class="journey-card-meta">
-          <a class="pin-link" href="https://maps.google.com/?q=Howland+Hill+Road" target="_blank" rel="noopener">📍 Open in Maps</a>
+          <a class="pin-link" href="https://maps.google.com/?q=Howland+Hill+Road" target="_blank" rel="noopener">📍 <span class="lang-en">Open in Maps</span><span class="lang-es">Abrir en Maps</span></a>
         </div>
-        <p>An unpaved road that tunnels straight through old-growth redwoods. Slow, narrow, and
+        <p class="lang-en">An unpaved road that tunnels straight through old-growth redwoods. Slow, narrow, and
         completely worth the drive — windows down, no music needed.</p>
+        <p class="lang-es">Un camino sin pavimentar que atraviesa como túnel las secuoyas antiguas. Lento, angosto y
+        completamente digno de manejar — ventanas abajo, sin necesidad de música.</p>
       </article>
     </div>
 
@@ -265,55 +308,73 @@
         <span class="journey-card-tag">Crescent City, CA</span>
         <h3>Boy Scout Tree Trail <span class="badge star">★</span></h3>
         <div class="journey-card-meta">
-          <a class="pin-link" href="https://maps.google.com/?q=Boy+Scout+Tree+Trailhead" target="_blank" rel="noopener">📍 Open in Maps</a>
-          <span class="meta-chip">4.8 mi round trip</span>
+          <a class="pin-link" href="https://maps.google.com/?q=Boy+Scout+Tree+Trailhead" target="_blank" rel="noopener">📍 <span class="lang-en">Open in Maps</span><span class="lang-es">Abrir en Maps</span></a>
+          <span class="meta-chip lang-en">4.8 mi round trip</span><span class="meta-chip lang-es">4.8 mi ida y vuelta</span>
         </div>
-        <p>The real hike of the trip. Quiet, mossy, almost nobody else on it. Pack the picnic lunch in —
+        <p class="lang-en">The real hike of the trip. Quiet, mossy, almost nobody else on it. Pack the picnic lunch in —
         we'll eat it on the trail. (Pack food before we head in — nowhere to grab anything once we're
         deep in the redwoods.)</p>
+        <p class="lang-es">La verdadera caminata del viaje. Tranquila, cubierta de musgo, casi nadie más en ella. Lleva
+        el almuerzo — lo comemos en el sendero. (Empaca comida antes de entrar — no hay dónde
+        conseguir nada una vez adentro de las secuoyas.)</p>
       </article>
     </div>
 
     <div class="journey-beat" data-day="Day 3" data-loc="Redwood National Park, CA">
       <div class="journey-card journey-card--choice" data-stop-frac="0.485" data-stop-lat="41.2865" data-stop-lon="-124.0492" data-kind="choice">
-        <h3 class="choice-heading">Afternoon: Pick Your Adventure</h3>
-        <p class="choice-sub">Both options are incredible. We can only realistically do one — vote below.</p>
+        <h3 class="choice-heading lang-en">Afternoon: Pick Your Adventure</h3><h3 class="choice-heading lang-es">Tarde: Elige tu aventura</h3>
+        <p class="choice-sub lang-en">Both options are incredible. We can only realistically do one — vote below.</p>
+        <p class="choice-sub lang-es">Ambas opciones son increíbles. Realmente solo podemos hacer una — vota abajo.</p>
         <div class="choice-tabs" role="tablist">
-          <button class="choice-tab is-active" data-choice="a" role="tab" aria-selected="true">Option A · Fern Canyon</button>
-          <button class="choice-tab" data-choice="b" role="tab" aria-selected="false">Option B · Tall Trees</button>
+          <button class="choice-tab is-active" data-choice="a" role="tab" aria-selected="true"><span class="lang-en">Option A · Fern Canyon</span><span class="lang-es">Opción A · Fern Canyon</span></button>
+          <button class="choice-tab" data-choice="b" role="tab" aria-selected="false"><span class="lang-en">Option B · Tall Trees</span><span class="lang-es">Opción B · Tall Trees</span></button>
         </div>
         <div class="choice-panel is-active" data-panel="a">
           <div class="stop-card-mini">
             <div class="stop-card-mini-media"><img src="../roadtrip2/images/fern-canyon.jpg" alt="Lush fern-covered walls of Fern Canyon" loading="lazy"></div>
             <h4>Fern Canyon <span class="badge star">★</span></h4>
-            <p>Sheer 50-foot walls completely covered in ferns — yes, this is the Jurassic Park canyon.
+            <p class="lang-en">Sheer 50-foot walls completely covered in ferns — yes, this is the Jurassic Park canyon.
             <a class="pin-link" href="https://maps.google.com/?q=Fern+Canyon" target="_blank" rel="noopener">📍 Open in Maps</a></p>
-            <p class="warning-note">⚠️ Needs a reservation + day-use fee for Gold Bluffs Beach access.
+            <p class="lang-es">Paredes verticales de 50 pies completamente cubiertas de helechos — sí, es el cañón de
+            Jurassic Park. <a class="pin-link" href="https://maps.google.com/?q=Fern+Canyon" target="_blank" rel="noopener">📍 Abrir en Maps</a></p>
+            <p class="warning-note lang-en">⚠️ Needs a reservation + day-use fee for Gold Bluffs Beach access.
             <a href="https://redwoodparksconservancy.org/reservations/" target="_blank" rel="noopener">Reserve →</a></p>
+            <p class="warning-note lang-es">⚠️ Requiere reservación + tarifa de acceso a Gold Bluffs Beach.
+            <a href="https://redwoodparksconservancy.org/reservations/" target="_blank" rel="noopener">Reservar →</a></p>
           </div>
           <div class="stop-card-mini">
             <div class="stop-card-mini-media"><img src="../roadtrip2/images/gold-bluffs.jpg" alt="Roosevelt elk resting in the grass at Gold Bluffs Beach" loading="lazy"></div>
             <h4>Gold Bluffs Beach</h4>
-            <p>Wild beach backed by golden cliffs, usually scattered with Roosevelt elk doing absolutely
+            <p class="lang-en">Wild beach backed by golden cliffs, usually scattered with Roosevelt elk doing absolutely
             nothing and looking incredible while doing it.
             <a class="pin-link" href="https://maps.google.com/?q=Gold+Bluffs+Beach" target="_blank" rel="noopener">📍 Open in Maps</a></p>
+            <p class="lang-es">Playa salvaje respaldada por acantilados dorados, casi siempre con alces de Roosevelt sin
+            hacer absolutamente nada y viéndose increíbles mientras tanto.
+            <a class="pin-link" href="https://maps.google.com/?q=Gold+Bluffs+Beach" target="_blank" rel="noopener">📍 Abrir en Maps</a></p>
           </div>
         </div>
         <div class="choice-panel" data-panel="b">
           <div class="stop-card-mini">
             <div class="stop-card-mini-media"><img src="../roadtrip2/images/tall-trees.jpg" alt="Some of the tallest trees on Earth at Tall Trees Grove" loading="lazy"></div>
             <h4>Tall Trees Grove</h4>
-            <p>Home to some of the tallest trees on the planet. Quiet, remote, far fewer people make it
+            <p class="lang-en">Home to some of the tallest trees on the planet. Quiet, remote, far fewer people make it
             out here. <a class="pin-link" href="https://maps.google.com/?q=Tall+Trees+Trailhead" target="_blank" rel="noopener">📍 Open in Maps</a></p>
-            <p class="warning-note">⚠️ Free reservation required year-round, gate code emailed beforehand.
+            <p class="lang-es">Hogar de algunos de los árboles más altos del planeta. Tranquilo, remoto, muy poca gente
+            llega hasta aquí. <a class="pin-link" href="https://maps.google.com/?q=Tall+Trees+Trailhead" target="_blank" rel="noopener">📍 Abrir en Maps</a></p>
+            <p class="warning-note lang-en">⚠️ Free reservation required year-round, gate code emailed beforehand.
             <a href="https://www.nps.gov/redw/planyourvisit/talltreespermits.htm" target="_blank" rel="noopener">Reserve →</a></p>
+            <p class="warning-note lang-es">⚠️ Reservación gratis obligatoria todo el año; el código de la reja llega por correo antes.
+            <a href="https://www.nps.gov/redw/planyourvisit/talltreespermits.htm" target="_blank" rel="noopener">Reservar →</a></p>
           </div>
           <div class="stop-card-mini">
             <div class="stop-card-mini-media"><img src="../roadtrip2/images/lady-bird-johnson.jpg" alt="Lady Bird Johnson Grove trail among the redwoods" loading="lazy"></div>
             <h4>Lady Bird Johnson Grove</h4>
-            <p>An easy 1.5-mile loop through a grove named for the woman who helped get this whole park
+            <p class="lang-en">An easy 1.5-mile loop through a grove named for the woman who helped get this whole park
             protected. Calm, mossy, easy walking after a big morning.
             <a class="pin-link" href="https://maps.google.com/?q=Lady+Bird+Johnson+Grove" target="_blank" rel="noopener">📍 Open in Maps</a></p>
+            <p class="lang-es">Un fácil circuito de 1.5 millas por un bosque nombrado por la mujer que ayudó a proteger
+            todo este parque. Tranquilo, con musgo, fácil de caminar tras una mañana larga.
+            <a class="pin-link" href="https://maps.google.com/?q=Lady+Bird+Johnson+Grove" target="_blank" rel="noopener">📍 Abrir en Maps</a></p>
           </div>
         </div>
       </div>
@@ -321,33 +382,40 @@
 
     <div class="journey-beat" data-day="Day 3" data-loc="Crescent City, CA">
       <div class="journey-card journey-card--label" data-stop-frac="0.5" data-stop-lat="41.7558" data-stop-lon="-124.2026">
-        <span class="journey-card-tag">Golden hour</span>
-        <h2>Sunset, same coast.</h2>
-        <p>Back to Enderts Beach or the Crescent Beach Overlook — whichever we're closer to — to bookend
+        <span class="journey-card-tag lang-en">Golden hour</span><span class="journey-card-tag lang-es">Hora dorada</span>
+        <h2 class="lang-en">Sunset, same coast.</h2><h2 class="lang-es">Atardecer, la misma costa.</h2>
+        <p class="lang-en">Back to Enderts Beach or the Crescent Beach Overlook — whichever we're closer to — to bookend
         the day the way we started it. Then one more push inland toward Grants Pass so the drive
         home is shorter.</p>
+        <p class="lang-es">De vuelta a Enderts Beach o al mirador de Crescent Beach — al que estemos más cerca — para
+        cerrar el día como lo empezamos. Luego un último tramo tierra adentro hacia Grants Pass para
+        que el regreso a casa sea más corto.</p>
       </div>
     </div>
 
     <div class="journey-beat" data-day="Day 4" data-loc="Ashland, OR">
       <article class="journey-card" data-stop-frac="0.618346" data-stop-lat="42.1946" data-stop-lon="-122.7095">
         <div class="journey-card-media"><img src="../roadtrip2/images/lithia-park.jpg" alt="Lithia Park in Ashland, Oregon with fall color along the creek" loading="lazy"></div>
-        <span class="journey-card-tag">Optional stop · Ashland, OR</span>
+        <span class="journey-card-tag lang-en">Optional stop · Ashland, OR</span><span class="journey-card-tag lang-es">Parada opcional · Ashland, OR</span>
         <h3>Lithia Park</h3>
         <div class="journey-card-meta">
-          <a class="pin-link" href="https://maps.google.com/?q=Lithia+Park" target="_blank" rel="noopener">📍 Open in Maps</a>
+          <a class="pin-link" href="https://maps.google.com/?q=Lithia+Park" target="_blank" rel="noopener">📍 <span class="lang-en">Open in Maps</span><span class="lang-es">Abrir en Maps</span></a>
         </div>
-        <p>Breakfast first at Pangea <span class="badge vegan">🌱</span><span class="badge gf">GF</span> —
+        <p class="lang-en">Breakfast first at Pangea <span class="badge vegan">🌱</span><span class="badge gf">GF</span> —
         fully vegan, gluten-free options that don't feel like an apology. Then a short, easy walk through
         one of the prettiest little city parks on the coast before seven hours in the car.</p>
+        <p class="lang-es">Primero desayuno en Pangea <span class="badge vegan">🌱</span><span class="badge gf">SG</span> —
+        totalmente vegano, con opciones sin gluten que no se sienten como una disculpa. Luego una corta y
+        fácil caminata por uno de los parques urbanos más bonitos de la costa antes de siete horas en el auto.</p>
       </article>
     </div>
 
     <div class="journey-beat" data-day="Day 4" data-loc="Seattle, WA">
       <div class="journey-card journey-card--label" data-stop-frac="1" data-stop-lat="47.6062" data-stop-lon="-122.3321">
-        <span class="journey-card-tag">8–10 PM · Expected arrival</span>
-        <h2>Back in Seattle.</h2>
-        <p>Tired, sandy, full of redwoods and ocean air, already planning the next one.</p>
+        <span class="journey-card-tag lang-en">8–10 PM · Expected arrival</span><span class="journey-card-tag lang-es">8–10 PM · Llegada estimada</span>
+        <h2 class="lang-en">Back in Seattle.</h2><h2 class="lang-es">De vuelta en Seattle.</h2>
+        <p class="lang-en">Tired, sandy, full of redwoods and ocean air, already planning the next one.</p>
+        <p class="lang-es">Cansados, con arena, llenos de secuoyas y aire de mar, ya planeando el siguiente.</p>
       </div>
     </div>
 
@@ -355,63 +423,64 @@
 </section>
 
 <section class="lists-section" data-reveal>
-  <h2 class="section-title">Getting Ready</h2>
-  <p class="section-sub">Check things off as we pack — it'll save here.</p>
+  <h2 class="section-title lang-en">Getting Ready</h2><h2 class="section-title lang-es">Preparándonos</h2>
+  <p class="section-sub lang-en">Check things off as we pack — it'll save here.</p>
+  <p class="section-sub lang-es">Marca las cosas mientras empacamos — se guarda aquí.</p>
   <div class="lists-grid">
     <div class="list-col">
-      <h3>🎒 Packing</h3>
+      <h3><span class="lang-en">🎒 Packing</span><span class="lang-es">🎒 Equipaje</span></h3>
       <ul class="checklist" data-checklist="packing">
-        <li><label><input type="checkbox"><span>Reflectix window covers</span></label></li>
-        <li><label><input type="checkbox"><span>Camp chairs</span></label></li>
-        <li><label><input type="checkbox"><span>Jetboil</span></label></li>
-        <li><label><input type="checkbox"><span>Cooler</span></label></li>
-        <li><label><input type="checkbox"><span>Ice</span></label></li>
-        <li><label><input type="checkbox"><span>Hiking shoes</span></label></li>
-        <li><label><input type="checkbox"><span>Headlamps</span></label></li>
-        <li><label><input type="checkbox"><span>Bug spray</span></label></li>
-        <li><label><input type="checkbox"><span>Power bank</span></label></li>
-        <li><label><input type="checkbox"><span>Offline Google Maps downloaded</span></label></li>
-        <li><label><input type="checkbox"><span>National Park Pass (optional)</span></label></li>
+        <li><label><input type="checkbox" data-key="reflectix"><span class="lang-en">Reflectix window covers</span><span class="lang-es">Cubiertas Reflectix para ventanas</span></label></li>
+        <li><label><input type="checkbox" data-key="camp-chairs"><span class="lang-en">Camp chairs</span><span class="lang-es">Sillas de campamento</span></label></li>
+        <li><label><input type="checkbox" data-key="jetboil"><span class="lang-en">Jetboil</span><span class="lang-es">Jetboil</span></label></li>
+        <li><label><input type="checkbox" data-key="cooler"><span class="lang-en">Cooler</span><span class="lang-es">Hielera</span></label></li>
+        <li><label><input type="checkbox" data-key="ice"><span class="lang-en">Ice</span><span class="lang-es">Hielo</span></label></li>
+        <li><label><input type="checkbox" data-key="hiking-shoes"><span class="lang-en">Hiking shoes</span><span class="lang-es">Zapatos de senderismo</span></label></li>
+        <li><label><input type="checkbox" data-key="headlamps"><span class="lang-en">Headlamps</span><span class="lang-es">Linternas de cabeza</span></label></li>
+        <li><label><input type="checkbox" data-key="bug-spray"><span class="lang-en">Bug spray</span><span class="lang-es">Repelente de insectos</span></label></li>
+        <li><label><input type="checkbox" data-key="power-bank"><span class="lang-en">Power bank</span><span class="lang-es">Batería portátil</span></label></li>
+        <li><label><input type="checkbox" data-key="offline-maps"><span class="lang-en">Offline Google Maps downloaded</span><span class="lang-es">Google Maps sin conexión descargado</span></label></li>
+        <li><label><input type="checkbox" data-key="park-pass"><span class="lang-en">National Park Pass (optional)</span><span class="lang-es">Pase de Parques Nacionales (opcional)</span></label></li>
       </ul>
     </div>
     <div class="list-col">
-      <h3>🛒 Groceries</h3>
-      <p class="list-sub">Breakfast</p>
+      <h3><span class="lang-en">🛒 Groceries</span><span class="lang-es">🛒 Compras</span></h3>
+      <p class="list-sub lang-en">Breakfast</p><p class="list-sub lang-es">Desayuno</p>
       <ul class="checklist" data-checklist="grocery">
-        <li><label><input type="checkbox"><span>Overnight oats</span></label></li>
-        <li><label><input type="checkbox"><span>Oat milk</span></label></li>
-        <li><label><input type="checkbox"><span>Fruit</span></label></li>
-        <li><label><input type="checkbox"><span>Peanut butter</span></label></li>
-        <li><label><input type="checkbox"><span>Bananas</span></label></li>
+        <li><label><input type="checkbox" data-key="oats"><span class="lang-en">Overnight oats</span><span class="lang-es">Avena remojada</span></label></li>
+        <li><label><input type="checkbox" data-key="oat-milk"><span class="lang-en">Oat milk</span><span class="lang-es">Leche de avena</span></label></li>
+        <li><label><input type="checkbox" data-key="fruit"><span class="lang-en">Fruit</span><span class="lang-es">Fruta</span></label></li>
+        <li><label><input type="checkbox" data-key="peanut-butter"><span class="lang-en">Peanut butter</span><span class="lang-es">Mantequilla de maní</span></label></li>
+        <li><label><input type="checkbox" data-key="bananas"><span class="lang-en">Bananas</span><span class="lang-es">Plátanos</span></label></li>
       </ul>
-      <p class="list-sub">Lunch</p>
+      <p class="list-sub lang-en">Lunch</p><p class="list-sub lang-es">Almuerzo</p>
       <ul class="checklist" data-checklist="grocery">
-        <li><label><input type="checkbox"><span>Hummus</span></label></li>
-        <li><label><input type="checkbox"><span>GF tortillas</span></label></li>
-        <li><label><input type="checkbox"><span>Avocados</span></label></li>
-        <li><label><input type="checkbox"><span>Veggies</span></label></li>
-        <li><label><input type="checkbox"><span>Chips</span></label></li>
+        <li><label><input type="checkbox" data-key="hummus"><span class="lang-en">Hummus</span><span class="lang-es">Hummus</span></label></li>
+        <li><label><input type="checkbox" data-key="tortillas"><span class="lang-en">GF tortillas</span><span class="lang-es">Tortillas sin gluten</span></label></li>
+        <li><label><input type="checkbox" data-key="avocados"><span class="lang-en">Avocados</span><span class="lang-es">Aguacates</span></label></li>
+        <li><label><input type="checkbox" data-key="veggies"><span class="lang-en">Veggies</span><span class="lang-es">Verduras</span></label></li>
+        <li><label><input type="checkbox" data-key="chips"><span class="lang-en">Chips</span><span class="lang-es">Papas fritas</span></label></li>
       </ul>
-      <p class="list-sub">Snacks</p>
+      <p class="list-sub lang-en">Snacks</p><p class="list-sub lang-es">Snacks</p>
       <ul class="checklist" data-checklist="grocery">
-        <li><label><input type="checkbox"><span>Trail mix</span></label></li>
-        <li><label><input type="checkbox"><span>Protein bars</span></label></li>
-        <li><label><input type="checkbox"><span>Apples</span></label></li>
-        <li><label><input type="checkbox"><span>Electrolytes</span></label></li>
+        <li><label><input type="checkbox" data-key="trail-mix"><span class="lang-en">Trail mix</span><span class="lang-es">Mezcla de frutos secos</span></label></li>
+        <li><label><input type="checkbox" data-key="protein-bars"><span class="lang-en">Protein bars</span><span class="lang-es">Barras de proteína</span></label></li>
+        <li><label><input type="checkbox" data-key="apples"><span class="lang-en">Apples</span><span class="lang-es">Manzanas</span></label></li>
+        <li><label><input type="checkbox" data-key="electrolytes"><span class="lang-en">Electrolytes</span><span class="lang-es">Electrolitos</span></label></li>
       </ul>
-      <p class="list-sub">Dinner backup</p>
+      <p class="list-sub lang-en">Dinner backup</p><p class="list-sub lang-es">Cena de respaldo</p>
       <ul class="checklist" data-checklist="grocery">
-        <li><label><input type="checkbox"><span>Instant rice</span></label></li>
-        <li><label><input type="checkbox"><span>Vegan chili</span></label></li>
-        <li><label><input type="checkbox"><span>Instant ramen (GF)</span></label></li>
-        <li><label><input type="checkbox"><span>Shelf-stable tofu</span></label></li>
+        <li><label><input type="checkbox" data-key="rice"><span class="lang-en">Instant rice</span><span class="lang-es">Arroz instantáneo</span></label></li>
+        <li><label><input type="checkbox" data-key="chili"><span class="lang-en">Vegan chili</span><span class="lang-es">Chili vegano</span></label></li>
+        <li><label><input type="checkbox" data-key="ramen"><span class="lang-en">Instant ramen (GF)</span><span class="lang-es">Ramen instantáneo (sin gluten)</span></label></li>
+        <li><label><input type="checkbox" data-key="tofu"><span class="lang-en">Shelf-stable tofu</span><span class="lang-es">Tofu de larga duración</span></label></li>
       </ul>
     </div>
   </div>
 </section>
 
 <section class="highlights-section" data-reveal>
-  <h2 class="section-title">If We Only Hit the Highlights</h2>
+  <h2 class="section-title lang-en">If We Only Hit the Highlights</h2><h2 class="section-title lang-es">Si solo vemos lo esencial</h2>
   <div class="highlights-grid">
     <a class="highlight-chip" href="https://maps.google.com/?q=Thor's+Well+Oregon" target="_blank" rel="noopener"><img src="../roadtrip2/images/thors-well.jpg" alt="" loading="lazy"><span>Thor's Well</span></a>
     <a class="highlight-chip" href="https://maps.google.com/?q=Cape+Perpetua+Visitor+Center" target="_blank" rel="noopener"><img src="../roadtrip2/images/cape-perpetua.jpg" alt="" loading="lazy"><span>Cape Perpetua</span></a>
@@ -426,11 +495,13 @@
 </section>
 
 <section class="closing" data-reveal>
-  <p class="closing-kicker">The plan —</p>
-  <h2 class="closing-title">Four days. One car. The whole coast.</h2>
-  <p class="closing-body">Drive the whole way, stop wherever's worth stopping longer, and keep the
+  <p class="closing-kicker lang-en">The plan —</p><p class="closing-kicker lang-es">El plan —</p>
+  <h2 class="closing-title lang-en">Four days. One car. The whole coast.</h2><h2 class="closing-title lang-es">Cuatro días. Un auto. Toda la costa.</h2>
+  <p class="closing-body lang-en">Drive the whole way, stop wherever's worth stopping longer, and keep the
   cooler full of snacks you can actually eat. That's the trip.</p>
-  <button class="cta-button" id="cta-yes">Let's go. 🚗💛</button>
+  <p class="closing-body lang-es">Manejar todo el camino, parar donde valga la pena quedarse más, y mantener la
+  hielera llena de snacks que de verdad puedas comer. Ese es el viaje.</p>
+  <button class="cta-button" id="cta-yes"><span class="lang-en">Let's go. 🚗💛</span><span class="lang-es">¡Vámonos! 🚗💛</span></button>
   <p class="closing-footnote" id="cta-response" aria-live="polite"></p>
 </section>
 
