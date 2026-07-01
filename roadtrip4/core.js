@@ -169,13 +169,13 @@
 
   var ctaMessages = {
     en: [
-      "Pack the cooler. 🚙✨",
+      "Hit the road. 🚙✨",
       "It's happening. 🌊",
       "Best decision today. 💛",
       "See you at the coast. 🌅"
     ],
     es: [
-      "Llena la hielera. 🚙✨",
+      "A la carretera. 🚙✨",
       "Está pasando. 🌊",
       "La mejor decisión de hoy. 💛",
       "Nos vemos en la costa. 🌅"
