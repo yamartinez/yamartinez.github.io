@@ -13,6 +13,7 @@
   }
 
   function initInteractions() {
+    initLang();
     initScrollReveal();
     initProgressBar();
     initCounters();
@@ -22,6 +23,52 @@
     if (typeof window.initJourneyVisual === "function") {
       window.initJourneyVisual(content);
     }
+  }
+
+  /* ---------------- Language (EN / ES) ----------------
+     Priority on load: ?lang= URL param > saved choice > English. The active
+     language is always written back into the URL so a copied/shared link
+     opens in that language for whoever receives it. */
+  var VALID_LANGS = { en: true, es: true };
+
+  function currentLang() {
+    return document.documentElement.lang === "es" ? "es" : "en";
+  }
+
+  function setLang(lang, persist) {
+    if (!VALID_LANGS[lang]) lang = "en";
+    document.documentElement.lang = lang;
+    var buttons = document.querySelectorAll(".lang-switch button[data-lang]");
+    buttons.forEach(function (b) {
+      var on = b.getAttribute("data-lang") === lang;
+      b.classList.toggle("is-active", on);
+      b.setAttribute("aria-pressed", on ? "true" : "false");
+    });
+    if (persist) {
+      try { localStorage.setItem("rt4_lang", lang); } catch (e) {}
+    }
+    try {
+      var url = new URL(window.location.href);
+      url.searchParams.set("lang", lang);
+      window.history.replaceState(null, "", url);
+    } catch (e) {}
+  }
+
+  function initLang() {
+    var urlLang, storedLang;
+    try { urlLang = new URLSearchParams(window.location.search).get("lang"); } catch (e) {}
+    try { storedLang = localStorage.getItem("rt4_lang"); } catch (e) {}
+    var initial = VALID_LANGS[urlLang] ? urlLang : (VALID_LANGS[storedLang] ? storedLang : "en");
+    // Persist the resolved choice so a param-driven visit sticks on later visits.
+    setLang(initial, true);
+
+    var sw = document.querySelector(".lang-switch");
+    if (!sw) return;
+    sw.addEventListener("click", function (e) {
+      var btn = e.target.closest("button[data-lang]");
+      if (!btn) return;
+      setLang(btn.getAttribute("data-lang"), true);
+    });
   }
 
   function initScrollReveal() {
@@ -105,7 +152,10 @@
       var name = list.getAttribute("data-checklist");
       var checkboxes = list.querySelectorAll('input[type="checkbox"]');
       checkboxes.forEach(function (box) {
-        var label = box.parentElement.querySelector("span").textContent.trim();
+        // Prefer a stable, language-independent key so toggling EN/ES doesn't
+        // orphan saved checks (the visible label text changes per language).
+        var stable = box.getAttribute("data-key");
+        var label = stable || box.parentElement.querySelector("span").textContent.trim();
         var key = "rt4_check_" + name + "_" + label;
         try {
           if (localStorage.getItem(key) === "1") box.checked = true;
@@ -117,12 +167,20 @@
     });
   }
 
-  var ctaMessages = [
-    "Pack the cooler. 🚙✨",
-    "It's happening. 🌊",
-    "Best decision today. 💛",
-    "See you at the coast. 🌅"
-  ];
+  var ctaMessages = {
+    en: [
+      "Pack the cooler. 🚙✨",
+      "It's happening. 🌊",
+      "Best decision today. 💛",
+      "See you at the coast. 🌅"
+    ],
+    es: [
+      "Llena la hielera. 🚙✨",
+      "Está pasando. 🌊",
+      "La mejor decisión de hoy. 💛",
+      "Nos vemos en la costa. 🌅"
+    ]
+  };
   var ctaIndex = 0;
 
   function spawnConfetti() {
@@ -152,7 +210,8 @@
     if (!btn) return;
     btn.addEventListener("click", function () {
       spawnConfetti();
-      response.textContent = ctaMessages[ctaIndex % ctaMessages.length];
+      var msgs = ctaMessages[currentLang()];
+      response.textContent = msgs[ctaIndex % msgs.length];
       ctaIndex++;
     });
   }

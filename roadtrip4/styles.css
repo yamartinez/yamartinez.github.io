@@ -44,6 +44,37 @@ button { font-family: inherit; cursor: pointer; }
   transition: width 0.1s linear;
 }
 
+/* ---------------- Language switch ---------------- */
+.lang-switch {
+  position: fixed;
+  top: 14px; right: 14px;
+  z-index: 600;
+  display: flex;
+  gap: 2px;
+  padding: 3px;
+  border-radius: 999px;
+  background: rgba(12, 18, 28, 0.7);
+  border: 1px solid var(--line);
+  backdrop-filter: blur(10px);
+}
+.lang-switch button {
+  border: none;
+  background: transparent;
+  color: var(--ink-dim);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 6px 12px;
+  border-radius: 999px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.lang-switch button.is-active { background: var(--coral); color: #1a0d08; }
+
+/* Show one language at a time. The visible copy gets no display override,
+   so its natural/author display applies; only the hidden copy is removed. */
+html:not([lang="es"]) .lang-es { display: none; }
+html[lang="es"] .lang-en { display: none; }
+
 /* ---------------- Gate ---------------- */
 .gate {
   position: fixed;
