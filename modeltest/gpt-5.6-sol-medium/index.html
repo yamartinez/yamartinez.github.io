@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#050914">
+    <title>Orbis — An Interactive Solar System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <main class="experience">
+      <canvas id="space" aria-label="Interactive 3D model of the solar system"></canvas>
+      <div class="grain" aria-hidden="true"></div>
+      <div id="labels" class="labels" aria-hidden="true"></div>
+
+      <header class="topbar">
+        <a class="brand" href="#" aria-label="Reset solar system view">
+          <span class="brand-mark"><i></i></span>
+          <span>ORBIS</span>
+        </a>
+        <div class="system-status">
+          <span class="live-dot"></span>
+          <span>LIVE SYSTEM</span>
+          <span id="simDate">DAY 000</span>
+        </div>
+        <button id="soundToggle" class="icon-button" type="button" aria-label="Toggle ambient sound" aria-pressed="false">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4Zm12.5 1.2a3 3 0 0 1 0 3.6M19 7a7 7 0 0 1 0 10"/></svg>
+        </button>
+      </header>
+
+      <section class="intro" aria-labelledby="pageTitle">
+        <p class="eyebrow"><span>01</span> THE SOLAR SYSTEM</p>
+        <h1 id="pageTitle">Wander among<br>the <em>worlds.</em></h1>
+        <p class="lede">Eight planets. One star. A quiet corner of the cosmos you can hold in your hands.</p>
+        <div class="gesture-hint">
+          <span class="mouse-icon"></span>
+          <span>DRAG TO ORBIT<br>SCROLL TO TRAVEL</span>
+        </div>
+      </section>
+
+      <nav class="planet-nav" aria-label="Celestial bodies">
+        <p>CELESTIAL BODIES</p>
+        <div id="planetList"></div>
+      </nav>
+
+      <aside id="infoPanel" class="info-panel" aria-live="polite">
+        <button id="closeInfo" class="close-button" type="button" aria-label="Close planet details">×</button>
+        <p id="planetIndex" class="planet-index">PLANET 03 / 08</p>
+        <h2 id="planetName">Earth</h2>
+        <p id="planetType" class="planet-type">TERRESTRIAL PLANET</p>
+        <p id="planetDescription" class="planet-description"></p>
+        <dl class="planet-stats">
+          <div><dt>DIAMETER</dt><dd id="planetDiameter"></dd></div>
+          <div><dt>ORBIT</dt><dd id="planetOrbit"></dd></div>
+          <div><dt>MOONS</dt><dd id="planetMoons"></dd></div>
+        </dl>
+        <button id="releaseFocus" class="text-button" type="button">RETURN TO SYSTEM <span>↗</span></button>
+      </aside>
+
+      <section class="timeline" aria-label="Simulation controls">
+        <button id="pauseButton" class="play-button" type="button" aria-label="Pause simulation" aria-pressed="false">
+          <span class="pause-symbol"></span>
+        </button>
+        <div class="time-control">
+          <div class="time-meta">
+            <span>TIME VELOCITY</span>
+            <output id="speedValue" for="speedControl">1.0×</output>
+          </div>
+          <input id="speedControl" type="range" min="0.1" max="4" step="0.1" value="1" aria-label="Simulation speed">
+          <div class="ticks"><span>.1×</span><span>1×</span><span>2×</span><span>4×</span></div>
+        </div>
+        <button id="resetButton" class="reset-button" type="button">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11a8 8 0 1 0-2.3 5.7M20 5v6h-6"/></svg>
+          RESET VIEW
+        </button>
+      </section>
+
+      <p class="credit">A DIGITAL ORRERY <span>•</span> 2026</p>
+      <div id="loading" class="loading"><span></span><p>CALIBRATING ORBITS</p></div>
+    </main>
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
