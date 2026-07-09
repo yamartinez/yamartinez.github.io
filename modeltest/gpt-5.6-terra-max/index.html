@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="An interactive, explorable solar system with animated orbits and free camera controls."
+    />
+    <meta name="theme-color" content="#070b19" />
+    <title>Orbital Atlas | Interactive Solar System</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <canvas
+      id="space-canvas"
+      aria-label="Interactive 3D solar system. Drag to rotate, use Shift and drag to pan, and scroll to zoom."
+    ></canvas>
+
+    <main class="interface">
+      <header class="masthead">
+        <a class="wordmark" href="#top" aria-label="Orbital Atlas home">
+          <span class="wordmark-mark" aria-hidden="true"></span>
+          <span>ORBITAL ATLAS</span>
+        </a>
+        <div class="mission-status" aria-label="System status">
+          <span class="status-dot" aria-hidden="true"></span>
+          <span>LIVE SIMULATION</span>
+        </div>
+      </header>
+
+      <section class="title-block" id="top" aria-labelledby="scene-title">
+        <p class="eyebrow">SOL SYSTEM / INTERACTIVE MODEL</p>
+        <h1 id="scene-title">Explore the<br />neighborhood.</h1>
+        <p class="title-copy">
+          Nine bodies, one star, and all the room between. Select a world to inspect it.
+        </p>
+      </section>
+
+      <aside class="inspector" id="inspector" aria-live="polite">
+        <div class="inspector-topline">
+          <span id="body-kind">AWAITING SELECTION</span>
+          <span class="body-index" id="body-index">--</span>
+        </div>
+        <h2 id="body-name">Choose a world</h2>
+        <p id="body-description">
+          Click a planet in the field to focus the camera and bring its vital statistics into view.
+        </p>
+        <dl class="fact-grid" id="body-facts">
+          <div>
+            <dt>Camera</dt>
+            <dd>Free flight</dd>
+          </div>
+          <div>
+            <dt>Time</dt>
+            <dd>Adjustable</dd>
+          </div>
+        </dl>
+        <button class="focus-button" id="focus-button" type="button" hidden>
+          Focus selected world
+        </button>
+      </aside>
+
+      <section class="control-dock" aria-label="Simulation controls">
+        <div class="control-heading">
+          <span>TIME FLOW</span>
+          <span id="time-readout">1.00x</span>
+        </div>
+        <div class="time-controls">
+          <button id="slower-button" type="button" aria-label="Slow down simulation">-</button>
+          <button id="pause-button" type="button" aria-pressed="false">Pause</button>
+          <button id="faster-button" type="button" aria-label="Speed up simulation">+</button>
+        </div>
+        <button class="reset-button" id="reset-button" type="button">Reset view</button>
+      </section>
+
+      <div class="navigation-hint" aria-hidden="true">
+        <span><b>DRAG</b> ORBIT</span>
+        <span><b>SHIFT + DRAG</b> PAN</span>
+        <span><b>SCROLL</b> ZOOM</span>
+      </div>
+
+      <p class="sr-only" id="announcement" aria-live="polite"></p>
+    </main>
+
+    <script src="solar-system.js"></script>
+  </body>
+</html>
