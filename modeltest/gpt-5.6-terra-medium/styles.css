@@ -1,0 +1,51 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap");
+
+:root { color-scheme: dark; font-family: Manrope, sans-serif; background: #050715; color: #f8f5ec; }
+* { box-sizing: border-box; }
+body { margin: 0; min-width: 320px; overflow: hidden; }
+button { font: inherit; color: inherit; cursor: pointer; }
+.experience { min-height: 100svh; overflow: hidden; position: relative; background: radial-gradient(circle at 50% 50%, #151c42 0, #080b21 35%, #04050d 72%); }
+#space { cursor: grab; height: 100%; inset: 0; position: absolute; touch-action: none; width: 100%; }
+#space:active { cursor: grabbing; }
+.aurora { background: radial-gradient(ellipse at 54% 56%, rgba(68, 93, 255, .12), transparent 42%); inset: 0; pointer-events: none; position: absolute; }
+.topbar { align-items: center; display: flex; justify-content: space-between; left: clamp(24px, 4vw, 64px); position: absolute; right: clamp(24px, 4vw, 64px); top: 31px; z-index: 1; }
+.brand { align-items: center; color: inherit; display: flex; font: 500 12px/1 "DM Mono", monospace; gap: 10px; letter-spacing: .14em; text-decoration: none; }
+.brand-mark { border: 1px solid #e3b86f; border-radius: 50%; box-shadow: 0 0 14px #e3b86f; height: 13px; position: relative; width: 13px; }
+.brand-mark::after { background: #fff1c7; border-radius: 50%; content: ""; height: 4px; inset: 3.5px; position: absolute; width: 4px; }
+.status, .eyebrow, .control-label { color: #aeb6d2; font: 500 10px/1.4 "DM Mono", monospace; letter-spacing: .15em; margin: 0; }
+.status { align-items: center; display: flex; gap: 7px; }
+.status-dot { background: #a9e49a; border-radius: 50%; box-shadow: 0 0 10px #a9e49a; height: 6px; width: 6px; }
+.hero { left: clamp(24px, 9vw, 150px); pointer-events: none; position: absolute; top: clamp(105px, 16vh, 160px); z-index: 1; }
+.hero h1 { font: 400 clamp(43px, 5.3vw, 84px)/.9 "Instrument Serif", Georgia, serif; letter-spacing: -.04em; margin: 14px 0 18px; }
+.hero > p:last-child { color: #b9bed1; font-size: 13px; line-height: 1.6; margin: 0; max-width: 290px; }
+.info-card { backdrop-filter: blur(18px); background: linear-gradient(145deg, rgba(29, 36, 74, .57), rgba(10, 13, 35, .38)); border: 1px solid rgba(203, 213, 255, .17); bottom: clamp(130px, 16vh, 180px); box-shadow: 0 20px 50px rgba(0,0,0,.22); left: clamp(24px, 9vw, 150px); padding: 22px 23px 18px; position: absolute; width: min(290px, calc(100vw - 48px)); z-index: 1; }
+.info-card h2 { font: 400 34px/1 "Instrument Serif", Georgia, serif; margin: 8px 0 8px; }
+.info-card > p:not(.eyebrow) { color: #c0c6da; font-size: 12px; line-height: 1.55; margin: 0 0 17px; }
+dl { border-top: 1px solid rgba(203, 213, 255, .16); display: grid; grid-template-columns: 1fr 1fr 1fr; margin: 0 0 18px; padding-top: 13px; }
+dt { color: #8992b0; font: 400 8px "DM Mono", monospace; letter-spacing: .08em; margin-bottom: 5px; text-transform: uppercase; }
+dd { color: #ecedf4; font: 500 10px "DM Mono", monospace; margin: 0; }
+.info-card button { background: #f2ead8; border: 0; color: #111329; font-size: 10px; font-weight: 700; letter-spacing: .08em; padding: 10px 12px; text-transform: uppercase; width: 100%; }
+.info-card button span { float: right; font-size: 14px; line-height: 9px; }
+.controls { bottom: 42px; position: absolute; right: clamp(24px, 4vw, 64px); text-align: center; z-index: 1; }
+.control-label { margin-bottom: 10px; }
+.control-row { align-items: center; display: flex; gap: 8px; }
+.icon-button, .pause-button { background: rgba(27, 32, 65, .72); border: 1px solid rgba(202, 212, 255, .22); height: 38px; }
+.icon-button { border-radius: 50%; font-size: 20px; line-height: 1; width: 38px; }
+.pause-button { border-radius: 20px; display: flex; font-size: 11px; font-weight: 700; gap: 7px; letter-spacing: .04em; padding: 0 15px; }
+#pause-icon { color: #f1c778; font-size: 15px; }
+#speed-readout { color: #aeb6d2; font: 10px "DM Mono", monospace; margin: 10px 0 0; }
+.utility-controls { align-items: center; bottom: 41px; display: flex; gap: 20px; left: clamp(24px, 4vw, 64px); position: absolute; z-index: 1; }
+.utility-controls button { background: transparent; border: 1px solid rgba(202, 212, 255, .27); font-size: 10px; padding: 10px 14px; }
+.utility-controls p { color: #8992af; font: 10px "DM Mono", monospace; margin: 0; }
+.mouse-icon { border: 1px solid #8992af; border-radius: 6px; display: inline-block; height: 12px; margin-right: 5px; vertical-align: -2px; width: 8px; }
+.planet-list { bottom: 0; display: flex; gap: clamp(12px, 2.4vw, 35px); justify-content: center; left: 50%; padding: 17px 20px; position: absolute; transform: translateX(-50%); white-space: nowrap; z-index: 1; }
+.planet-list button { background: none; border: 0; color: #727b9a; font: 500 10px "DM Mono", monospace; padding: 5px 0; transition: color .2s; }
+.planet-list button::before { background: currentColor; border-radius: 50%; content: ""; display: inline-block; height: 5px; margin-right: 6px; vertical-align: 1px; width: 5px; }
+.planet-list button:hover, .planet-list button[aria-current="true"] { color: #f4e3bb; }
+@media (max-width: 700px) {
+  .topbar { top: 24px; }.status { font-size: 8px; }.hero { top: 90px; }.hero h1 { font-size: clamp(40px, 13vw, 58px); }
+  .info-card { bottom: 125px; left: 20px; padding: 16px; width: min(265px, calc(100vw - 40px)); }.info-card h2 { font-size: 28px; }
+  .utility-controls { bottom: 83px; left: 20px; }.utility-controls p { display: none; }.controls { bottom: 81px; right: 20px; }
+  .planet-list { justify-content: flex-start; overflow-x: auto; padding-left: 22px; transform: none; width: 100%; left: 0; }
+}
+@media (max-width: 430px) { .hero > p:last-child { display: none; }.info-card { bottom: 118px; }.info-card > p:not(.eyebrow) { display: none; } dl { margin-bottom: 12px; } }

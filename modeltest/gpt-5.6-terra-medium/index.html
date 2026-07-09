@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#050715">
+    <title>Orbit Atlas | Interactive Solar System</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="experience">
+      <canvas id="space" aria-label="Interactive 3D solar system"></canvas>
+      <div class="aurora" aria-hidden="true"></div>
+
+      <header class="topbar">
+        <a class="brand" href="#space" aria-label="Orbit Atlas home">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span>ORBIT ATLAS</span>
+        </a>
+        <p class="status"><span class="status-dot"></span> LIVE SIMULATION</p>
+      </header>
+
+      <section class="hero" aria-labelledby="page-title">
+        <p class="eyebrow">THE NEIGHBORHOOD</p>
+        <h1 id="page-title">A quiet universe<br>in constant motion.</h1>
+        <p>Drag through space, select a world, and adjust the passage of time.</p>
+      </section>
+
+      <aside class="info-card" id="info-card" aria-live="polite">
+        <p class="eyebrow" id="body-type">STAR SYSTEM</p>
+        <h2 id="body-name">The Sun</h2>
+        <p id="body-description">Our local star holds the entire planetary family in its warm, gravitational reach.</p>
+        <dl>
+          <div><dt>Diameter</dt><dd id="body-diameter">1.39M km</dd></div>
+          <div><dt>Year length</dt><dd id="body-year">—</dd></div>
+          <div><dt>Distance</dt><dd id="body-distance">0 AU</dd></div>
+        </dl>
+        <button id="focus-button" type="button">Focus Sun <span aria-hidden="true">↗</span></button>
+      </aside>
+
+      <section class="controls" aria-label="Simulation controls">
+        <div class="control-label">TIME FLOW</div>
+        <div class="control-row">
+          <button class="icon-button" id="slower-button" type="button" aria-label="Slow down time">−</button>
+          <button class="pause-button" id="pause-button" type="button" aria-pressed="false">
+            <span id="pause-icon" aria-hidden="true">Ⅱ</span><span id="pause-label">Pause</span>
+          </button>
+          <button class="icon-button" id="faster-button" type="button" aria-label="Speed up time">+</button>
+        </div>
+        <p id="speed-readout">1.0× orbital speed</p>
+      </section>
+
+      <div class="utility-controls">
+        <button id="reset-button" type="button">Reset view</button>
+        <p><span class="mouse-icon" aria-hidden="true"></span> Drag to explore · Scroll to zoom</p>
+      </div>
+
+      <nav class="planet-list" id="planet-list" aria-label="Select a celestial body"></nav>
+    </main>
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
