@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Model Test — Solar System Comparison</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background: #0a0a14;
+      color: #e0e0f0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 3rem 1.5rem;
+    }
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-align: center;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(135deg, #a78bfa, #60a5fa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .subtitle {
+      font-size: 0.95rem;
+      color: #7c7caa;
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.25rem;
+      width: 100%;
+      max-width: 900px;
+    }
+
+    .card {
+      background: #13132a;
+      border: 1px solid #2a2a4a;
+      border-radius: 12px;
+      padding: 1.5rem;
+      text-decoration: none;
+      color: inherit;
+      transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .card:hover {
+      border-color: #6366f1;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(99, 102, 241, 0.2);
+    }
+
+    .card-model {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #818cf8;
+    }
+
+    .card-effort {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.15em 0.55em;
+      border-radius: 999px;
+      margin-left: 0.4rem;
+      vertical-align: middle;
+    }
+
+    .effort-max  { background: #4f1d96; color: #c4b5fd; }
+    .effort-high { background: #1e3a5f; color: #93c5fd; }
+    .effort-med  { background: #1c3a2a; color: #6ee7b7; }
+
+    .card-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #e0e0f0;
+    }
+
+    .card-arrow {
+      margin-top: auto;
+      font-size: 0.85rem;
+      color: #6366f1;
+    }
+  </style>
+</head>
+<body>
+  <h1>🪐 Model Test</h1>
+  <p class="subtitle">Interactive Solar System — solutions compared across models &amp; effort levels</p>
+
+  <div class="grid">
+
+    <a class="card" href="gemini-3.1-pro-high/index.html">
+      <span class="card-model">Gemini 3.1 Pro <span class="card-effort effort-high">high</span></span>
+      <span class="card-title">3D Solar System</span>
+      <span class="card-arrow">View →</span>
+    </a>
+
+    <a class="card" href="gemini-3.1-pro-medium/index.html">
+      <span class="card-model">Gemini 3.1 Pro <span class="card-effort effort-med">medium</span></span>
+      <span class="card-title">3D Solar System</span>
+      <span class="card-arrow">View →</span>
+    </a>
+
+    <a class="card" href="gpt-5.6-sol-max/index.html">
+      <span class="card-model">GPT-5.6 Sol <span class="card-effort effort-max">max</span></span>
+      <span class="card-title">Orbital Atlas — Interactive Solar System</span>
+      <span class="card-arrow">View →</span>
+    </a>
+
+    <a class="card" href="gpt-5.6-sol-medium/index.html">
+      <span class="card-model">GPT-5.6 Sol <span class="card-effort effort-med">medium</span></span>
+      <span class="card-title">Orbis — An Interactive Solar System</span>
+      <span class="card-arrow">View →</span>
+    </a>
+
+    <a class="card" href="gpt-5.6-terra-max/index.html">
+      <span class="card-model">GPT-5.6 Terra <span class="card-effort effort-max">max</span></span>
+      <span class="card-title">Orbital Atlas | Interactive Solar System</span>
+      <span class="card-arrow">View →</span>
+    </a>
+
+    <a class="card" href="gpt-5.6-terra-medium/index.html">
+      <span class="card-model">GPT-5.6 Terra <span class="card-effort effort-med">medium</span></span>
+      <span class="card-title">Orbit Atlas | Interactive Solar System</span>
+      <span class="card-arrow">View →</span>
+    </a>
+
+    <a class="card" href="opus-4.8-max/index.html">
+      <span class="card-model">Claude Opus 4.8 <span class="card-effort effort-max">max</span></span>
+      <span class="card-title">Solar System — Interactive 3D Orrery</span>
+      <span class="card-arrow">View →</span>
+    </a>
+
+    <a class="card" href="opus-4.8-medium/index.html">
+      <span class="card-model">Claude Opus 4.8 <span class="card-effort effort-med">medium</span></span>
+      <span class="card-title">Helios — Interactive 3D Solar System</span>
+      <span class="card-arrow">View →</span>
+    </a>
+
+  </div>
+</body>
+</html>
