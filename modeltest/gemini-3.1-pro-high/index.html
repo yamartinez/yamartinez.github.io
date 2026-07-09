@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Solar System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="ui-layer">
+        <div id="controls">
+            <button id="btn-pause">Pause</button>
+            <button id="btn-slow">Slow</button>
+            <button id="btn-normal" class="active">Normal</button>
+            <button id="btn-fast">Fast</button>
+            <button id="btn-reset">Reset View</button>
+        </div>
+        <div id="info-panel" class="hidden">
+            <h2 id="planet-name">Planet Name</h2>
+            <p id="planet-info">Information about the planet goes here.</p>
+        </div>
+    </div>
+    
+    <!-- Three.js and OrbitControls via CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    
+    <script src="main.js"></script>
+</body>
+</html>
