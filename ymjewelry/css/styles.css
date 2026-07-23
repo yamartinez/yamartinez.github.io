@@ -288,31 +288,85 @@ h1, h2, h3 {
   font-weight: 500;
 }
 
-.hero-figure {
+/* ---------- Hero carousel ---------- */
+
+.hero-carousel {
+  min-height: min(82vh, 720px);
+  display: flex;
+  align-items: center;
+}
+
+.hero-carousel .container {
+  display: block;
   position: relative;
+  z-index: 2;
+  padding: 6.5rem 0 7rem;
 }
 
-.hero-figure .frame {
-  background: linear-gradient(160deg, #fdfbf6, #efe6d3);
-  border-radius: var(--radius);
-  padding: 2rem;
-  box-shadow: var(--shadow);
-  border: 1px solid rgba(232, 205, 138, 0.5);
-  transform: rotate(1.5deg);
+.hero-carousel .hero-copy {
+  max-width: 38rem;
 }
 
-.hero-figure img {
+.hero-slides {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 1.4s ease;
+}
+
+.hero-slide.active {
+  opacity: 1;
+}
+
+.hero-slide img {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 35%;
 }
 
-.hero-figure figcaption {
-  margin-top: 1rem;
-  text-align: center;
-  font-size: 0.85rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--muted);
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(90deg, rgba(11, 9, 6, 0.93) 0%, rgba(11, 9, 6, 0.72) 45%, rgba(11, 9, 6, 0.3) 100%),
+    linear-gradient(0deg, rgba(11, 9, 6, 0.85) 0%, transparent 30%);
+}
+
+.hero-dots {
+  position: absolute;
+  bottom: 1.6rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  gap: 0.65rem;
+}
+
+.hero-dot {
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 50%;
+  border: 1px solid var(--gold);
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  transition: background var(--transition), transform var(--transition);
+}
+
+.hero-dot:hover {
+  transform: scale(1.25);
+}
+
+.hero-dot.active {
+  background: var(--gold);
 }
 
 /* ---------- Gold divider ---------- */
@@ -926,8 +980,13 @@ section {
     padding: 3.5rem 0 4rem;
   }
 
-  .hero-figure {
-    max-width: 26rem;
+  .hero-carousel .container {
+    padding: 5rem 0 6rem;
+  }
+
+  .hero-overlay {
+    background:
+      linear-gradient(0deg, rgba(11, 9, 6, 0.9) 0%, rgba(11, 9, 6, 0.68) 60%, rgba(11, 9, 6, 0.5) 100%);
   }
 
   .services-grid,
