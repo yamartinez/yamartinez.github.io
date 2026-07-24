@@ -38,7 +38,15 @@
 
   <main>
 
-    <section class="hero">
+    <section class="hero hero-carousel">
+      <div class="hero-slides" aria-hidden="true">
+        <div class="hero-slide active"><img src="assets/img/carousel/landing.jpg" alt=""></div>
+        <div class="hero-slide"><img src="assets/img/carousel/landing-2.jpg" alt="" loading="lazy"></div>
+        <div class="hero-slide"><img src="assets/img/carousel/landing-1.jpg" alt="" loading="lazy"></div>
+        <div class="hero-slide"><img src="assets/img/carousel/landing-3.jpg" alt="" loading="lazy"></div>
+        <div class="hero-slide"><img src="assets/img/carousel/landing-4_1.jpg" alt="" loading="lazy"></div>
+      </div>
+      <div class="hero-overlay"></div>
       <div class="container">
         <div class="hero-copy">
           <span class="eyebrow">Roanoke Valley · Family Owned</span>
@@ -50,13 +58,8 @@
           </div>
           <p class="hero-note">We invite you to compare with other jewelers in the area — <strong>our price can't be beat!</strong></p>
         </div>
-        <figure class="hero-figure reveal">
-          <div class="frame">
-            <img src="assets/img/gallery/100064.png" alt="Custom-designed gold ring with diamond accents by YM Jewelry">
-            <figcaption>Designed &amp; crafted in-house</figcaption>
-          </div>
-        </figure>
       </div>
+      <div class="hero-dots" role="tablist" aria-label="Slideshow navigation"></div>
     </section>
 
     <div class="gold-divider"></div>

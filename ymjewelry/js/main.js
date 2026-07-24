@@ -44,6 +44,44 @@
     todayRow.classList.add("today");
   }
 
+  /* ----- Hero carousel ----- */
+  var slides = document.querySelectorAll(".hero-slide");
+  var dotsWrap = document.querySelector(".hero-dots");
+  if (slides.length > 1 && dotsWrap) {
+    var slideIndex = 0;
+    var timer = null;
+
+    slides.forEach(function (_, i) {
+      var dot = document.createElement("button");
+      dot.className = "hero-dot" + (i === 0 ? " active" : "");
+      dot.setAttribute("aria-label", "Go to slide " + (i + 1));
+      dot.addEventListener("click", function () {
+        goTo(i);
+        restart();
+      });
+      dotsWrap.appendChild(dot);
+    });
+    var dots = dotsWrap.querySelectorAll(".hero-dot");
+
+    function goTo(i) {
+      slides[slideIndex].classList.remove("active");
+      dots[slideIndex].classList.remove("active");
+      slideIndex = (i + slides.length) % slides.length;
+      slides[slideIndex].classList.add("active");
+      dots[slideIndex].classList.add("active");
+    }
+
+    function restart() {
+      clearInterval(timer);
+      timer = setInterval(function () { goTo(slideIndex + 1); }, 6000);
+    }
+
+    var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (!reduceMotion.matches) {
+      restart();
+    }
+  }
+
   /* ----- Gallery filtering ----- */
   var filterBtns = document.querySelectorAll(".filter-btn");
   var items = Array.prototype.slice.call(
