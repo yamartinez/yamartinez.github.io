@@ -291,6 +291,7 @@ h1, h2, h3 {
 /* ---------- Hero carousel ---------- */
 
 .hero-carousel {
+  min-height: 620px;
   min-height: min(82vh, 720px);
   display: flex;
   align-items: center;
@@ -307,15 +308,24 @@ h1, h2, h3 {
   max-width: 38rem;
 }
 
+/* Explicit offsets instead of the `inset` shorthand: older mobile
+   browsers that don't parse `inset` would drop the slides into normal
+   flow, stacking every image visibly down the page. */
 .hero-slides {
   position: absolute;
-  inset: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   z-index: 0;
 }
 
 .hero-slide {
   position: absolute;
-  inset: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   opacity: 0;
   transition: opacity 1.4s ease;
 }
@@ -331,13 +341,17 @@ h1, h2, h3 {
   object-position: center 35%;
 }
 
+/* Shade only the left side on desktop so the right half of each photo
+   (rings, composite panels) stays fully visible. */
 .hero-overlay {
   position: absolute;
-  inset: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   z-index: 1;
   background:
-    linear-gradient(90deg, rgba(11, 9, 6, 0.93) 0%, rgba(11, 9, 6, 0.72) 45%, rgba(11, 9, 6, 0.3) 100%),
-    linear-gradient(0deg, rgba(11, 9, 6, 0.85) 0%, transparent 30%);
+    linear-gradient(90deg, rgba(11, 9, 6, 0.94) 0%, rgba(11, 9, 6, 0.78) 32%, rgba(11, 9, 6, 0.42) 52%, rgba(11, 9, 6, 0) 70%);
 }
 
 .hero-dots {
@@ -738,7 +752,10 @@ section {
 
 .lightbox {
   position: fixed;
-  inset: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   background: rgba(8, 6, 3, 0.94);
   display: none;
   align-items: center;
