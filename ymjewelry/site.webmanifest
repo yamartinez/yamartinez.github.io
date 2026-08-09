@@ -1,0 +1,12 @@
+{
+  "name": "YM Jewelry",
+  "short_name": "YM Jewelry",
+  "description": "Custom jewelry, engagement rings, repairs, and appraisals in Roanoke, Virginia.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0b0906",
+  "theme_color": "#0b0906",
+  "icons": [
+    { "src": "/assets/img/favicon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}
